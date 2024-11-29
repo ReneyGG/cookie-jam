@@ -18,6 +18,8 @@ var mouse_axis := Vector2()
 @onready var anim_player = $AnimationPlayer
 @onready var raycast = $Head/RayCast
 @onready var sprite = $Head/CanvasLayer/Control/Sprite
+@onready var gui: Control = $Head/CanvasLayer/Control/GUI
+
 # Move
 #var velocity := Vector3()
 var direction := Vector3()
@@ -33,10 +35,13 @@ const FLOOR_NORMAL := Vector3(0, 1, 0)
 @export var deacceleration := 10
 @export var air_control := 0.3
 @export var jump_height := 10
+var player_max_health := 100
+var player_current_health := player_max_health;
 # Fly
 @export var fly_speed := 10
 @export var fly_accel := 4
 var flying := false
+
 # Slopes
 #@export var floor_max_angle := 45.0
 
@@ -46,7 +51,8 @@ var flying := false
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	cam.fov = FOV
-	await get_tree().physics_frame
+	#FIX
+	#yield(get_tree(), "idle_frame")
 	get_tree().call_group("enemies", "set_player", self)
 
 
@@ -65,11 +71,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		walk(delta)
 	
-	#if Input.is_action_just_pressed("shoot") and !anim_player.is_playing():
-		##anim_player.play("shoot")
-		#var coll = raycast.get_collider()
-		#if raycast.is_colliding() and coll.has_method("kill"):
-			#coll.kill()
+	if Input.is_action_just_pressed("shoot") and !anim_player.is_playing():
+		#anim_player.play("shoot")
+		var coll = raycast.get_collider()
+		if raycast.is_colliding() and coll.has_method("kill"):
+			coll.kill()
+	
+	if Input.is_action_just_pressed("first"):
+		raycast.cast_to = Vector3(0, 0, -50)
+		sprite.animation = "gun"
+
+	if Input.is_action_just_pressed("second"):
+		raycast.cast_to = Vector3(0, 0, -2)
+		sprite.animation = "sword" 
  
 func kill():
 	get_tree().reload_current_scene()
@@ -108,14 +122,14 @@ func walk(delta: float) -> void:
 	
 	# Sprint
 	var _speed: int
-	#if (Input.is_action_pressed("move_sprint") and can_sprint and move_axis.x == 1):
-		#_speed = sprint_speed
-		#cam.set_fov(lerp(cam.fov, FOV * 1.05, delta * 8))
-		#sprinting = true
-	#else:
-	_speed = walk_speed
-	cam.set_fov(lerp(cam.fov, FOV, delta * 8))
-	sprinting = false
+	if (Input.is_action_pressed("move_sprint") and can_sprint and move_axis.x == 1):
+		_speed = sprint_speed
+		cam.set_fov(lerp(cam.fov, FOV * 1.05, delta * 8))
+		sprinting = true
+	else:
+		_speed = walk_speed
+		cam.set_fov(lerp(cam.fov, FOV, delta * 8))
+		sprinting = false
 	
 	# Acceleration and Deacceleration
 	# where would the player go
@@ -130,7 +144,8 @@ func walk(delta: float) -> void:
 	if not is_on_floor():
 		_temp_accel *= air_control
 	# interpolation
-	_temp_vel = _temp_vel.lerp(_target, _temp_accel * delta)
+	#FIX
+	#_temp_vel = _temp_vel.linear_interpolate(_target, _temp_accel * delta)
 	velocity.x = _temp_vel.x
 	velocity.z = _temp_vel.z
 	# clamping (to stop on slopes)
@@ -140,6 +155,9 @@ func walk(delta: float) -> void:
 			velocity.x = 0
 		if velocity.z < _vel_clamp and velocity.z > -_vel_clamp:
 			velocity.z = 0
+	
+	# Move
+	#velocity.y = move_and_slide(velocity, _snap, FLOOR_NORMAL, true, 4, deg_to_rad(floor_max_angle)).y
 
 
 func fly(delta: float) -> void:
@@ -158,10 +176,10 @@ func fly(delta: float) -> void:
 	
 	# Acceleration and Deacceleration
 	var target: Vector3 = direction * fly_speed
-	velocity = velocity.lerp(target, fly_accel * delta)
+	#velocity = velocity.linear_interpolate(target, fly_accel * delta)
 	
 	# Move
-	move_and_slide()
+	#velocity = move_and_slide()
 
 
 func camera_rotation() -> void:

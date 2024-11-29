@@ -30,8 +30,19 @@ animations = [{
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_x0sya")
+mouse_sensitivity = null
 head_path = NodePath("Head")
 cam_path = NodePath("Head/Camera")
+FOV = null
+gravity = null
+walk_speed = null
+sprint_speed = null
+acceleration = null
+deacceleration = null
+air_control = null
+jump_height = null
+fly_speed = null
+fly_accel = null
 
 [node name="Collision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.623811, 0)

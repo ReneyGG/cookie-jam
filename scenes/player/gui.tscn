@@ -1,0 +1,83 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv0apbjda28cv"]
+
+[ext_resource type="Script" path="res://scenes/player/gui.gd" id="1_gy8ea"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gy8ea")
+
+[node name="adrenaline_bar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 480.0
+offset_right = 450.0
+offset_bottom = 540.0
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="adrenaline_bar"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -3.0
+offset_right = 354.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 48
+text = "adrenaline-bar
+"
+
+[node name="adrenaline_timer" type="Timer" parent="adrenaline_bar"]
+wait_time = 0.25
+autostart = true
+
+[node name="health_bar" type="ProgressBar" parent="."]
+offset_left = 50.0
+offset_top = 550.0
+offset_right = 450.0
+offset_bottom = 610.0
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="health_bar"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = -6.0
+offset_right = 362.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 48
+text = "health-bar
+"
+
+[node name="combo_meter" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 944.0
+offset_top = 7.0
+offset_right = 1140.0
+offset_bottom = 140.0
+
+[node name="Label" type="Label" parent="combo_meter"]
+layout_mode = 2
+offset_left = 26.0
+offset_top = 12.0
+offset_right = 118.0
+offset_bottom = 51.0
+theme_override_font_sizes/font_size = 28
+text = "combo"
+
+[node name="Label2" type="Label" parent="combo_meter"]
+layout_mode = 2
+offset_left = 126.0
+offset_top = 60.0
+offset_right = 189.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 28
+
+[node name="combo_timer" type="Timer" parent="combo_meter"]
+wait_time = 3.0
+
+[connection signal="timeout" from="adrenaline_bar/adrenaline_timer" to="." method="_on_adrenaline_timer_timeout"]
+[connection signal="timeout" from="combo_meter/combo_timer" to="." method="_on_combo_timer_timeout"]
