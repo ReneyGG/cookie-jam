@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnrdajjnsnxg0"]
+
+[ext_resource type="Script" path="res://scenes/player/player_controller.gd" id="1_x0sya"]
+
+[sub_resource type="CapsuleShape3D" id="1"]
+radius = 0.366307
+height = 0.732615
+
+[sub_resource type="SpriteFrames" id="2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"gun",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"sword",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_x0sya")
+head_path = NodePath("Head")
+cam_path = NodePath("Head/Camera")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.623811, 0)
+shape = SubResource("1")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Camera" type="Camera3D" parent="Head"]
+fov = 80.0
+far = 250.0
+
+[node name="RayCast" type="RayCast3D" parent="Head"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Head"]
+
+[node name="Control" type="Control" parent="Head/CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Head/CanvasLayer/Control"]
+position = Vector2(313.936, -153.817)
+scale = Vector2(6.17072, 6.17072)
+sprite_frames = SubResource("2")
+animation = &"gun"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
