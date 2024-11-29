@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://qdxiw3mg5hy8"]
+[gd_scene load_steps=5 format=3 uid="uid://qdxiw3mg5hy8"]
 
+[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_g8m4g"]
 [ext_resource type="PackedScene" uid="uid://dnrdajjnsnxg0" path="res://scenes/player/Player.tscn" id="1_gdriq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tv7y3"]
@@ -8,6 +9,7 @@
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Test" type="Node3D"]
+script = ExtResource("1_g8m4g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.63102, 0, 0, 0, 1, 0, 0, 0, 8.62909, 0, 0, 0)

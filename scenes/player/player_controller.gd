@@ -18,6 +18,8 @@ var mouse_axis := Vector2()
 @onready var anim_player = $AnimationPlayer
 @onready var raycast = $Head/RayCast
 @onready var sprite = $Head/CanvasLayer/Control/Sprite
+@onready var gui: Control = $Head/CanvasLayer/Control/GUI
+
 # Move
 #var velocity := Vector3()
 var direction := Vector3()
@@ -33,10 +35,13 @@ const FLOOR_NORMAL := Vector3(0, 1, 0)
 @export var deacceleration := 10
 @export var air_control := 0.3
 @export var jump_height := 10
+var player_max_health := 100
+var player_current_health := player_max_health;
 # Fly
 @export var fly_speed := 10
 @export var fly_accel := 4
 var flying := false
+
 # Slopes
 #@export var floor_max_angle := 45.0
 
@@ -87,6 +92,10 @@ func kill():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_axis = event.relative
+	if event.is_action_pressed("input"):
+		get_node("Head/CanvasLayer/Control/GUI").killTimerUpdate()
+		
+		
 
 
 func walk(delta: float) -> void:
