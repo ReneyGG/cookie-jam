@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qdxiw3mg5hy8"]
+[gd_scene load_steps=9 format=3 uid="uid://qdxiw3mg5hy8"]
 
-[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_g8m4g"]
-[ext_resource type="PackedScene" uid="uid://dnrdajjnsnxg0" path="res://scenes/player/Player.tscn" id="1_gdriq"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://scenes/player/character.tscn" id="1_1uvs6"]
+[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_xre2e"]
+[ext_resource type="PackedScene" uid="uid://dajihw3h0cqnh" path="res://scenes/base_enemy/base_enemy.tscn" id="3_66qh0"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tv7y3"]
 
@@ -9,7 +10,7 @@
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Test" type="Node3D"]
-script = ExtResource("1_g8m4g")
+script = ExtResource("1_xre2e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.63102, 0, 0, 0, 1, 0, 0, 0, 8.62909, 0, 0, 0)
@@ -20,5 +21,12 @@ mesh = SubResource("BoxMesh_tv7y3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uub2c")
 
-[node name="Player" parent="." instance=ExtResource("1_gdriq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925935, 0)
+[node name="Character" parent="." instance=ExtResource("1_1uvs6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.763617, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3vw4n")
+
+[node name="BaseEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_66qh0")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.18698, -7.67819)
+player = NodePath("../Character")

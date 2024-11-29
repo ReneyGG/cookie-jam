@@ -118,6 +118,10 @@ extends CharacterBody3D
 
 #region Member Variable Initialization
 
+@onready var raycast = $Head/RayCast3D
+var attack_damage := 1
+var max_health := 5
+var health : int
 # These are variables used in this script that don't need to be exposed in the editor.
 var speed : float = base_speed
 var current_speed : float = 0.0
@@ -148,6 +152,7 @@ func _ready():
 	# If the controller is rotated in a certain direction for game design purposes, redirect this rotation into the head.
 	HEAD.rotation.y = rotation.y
 	rotation.y = 0
+	health = max_health
 
 	if default_reticle:
 		change_reticle(default_reticle)
@@ -177,7 +182,7 @@ func _physics_process(delta): # Most things happen here.
 		input_dir = Input.get_vector(controls.LEFT, controls.RIGHT, controls.FORWARD, controls.BACKWARD)
 
 	handle_movement(delta, input_dir)
-
+	handle_attack()
 	handle_head_rotation()
 
 	# The player is not able to stand up if the ceiling is too low
@@ -213,6 +218,13 @@ func handle_jumping():
 					JUMP_ANIMATION.play("jump", 0.25)
 				velocity.y += jump_velocity
 
+func handle_attack():
+	if Input.is_action_just_pressed("attack"):
+		if raycast.is_colliding():
+			var coll = raycast.get_collider()
+			coll.hit(attack_damage)
+	elif Input.is_action_just_pressed("self_attack"):
+		hit(attack_damage)
 
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
@@ -457,3 +469,8 @@ func handle_pausing():
 				#get_tree().paused = false
 
 #endregion
+
+func hit(damage):
+	health -= damage
+	if health <= 0:
+		print("dead")
