@@ -1,25 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://qdxiw3mg5hy8"]
+[gd_scene load_steps=5 format=3 uid="uid://qdxiw3mg5hy8"]
 
-[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://scenes/player/character.tscn" id="1_1uvs6"]
+[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_g8m4g"]
+[ext_resource type="PackedScene" uid="uid://dnrdajjnsnxg0" path="res://scenes/player/Player.tscn" id="1_gdriq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tv7y3"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_uub2c"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jaco8"]
-
-[sub_resource type="Sky" id="Sky_tu5rk"]
-sky_material = SubResource("ProceduralSkyMaterial_jaco8")
-
-[sub_resource type="Environment" id="Environment_3vw4n"]
-background_mode = 2
-sky = SubResource("Sky_tu5rk")
-
 [node name="Test" type="Node3D"]
+script = ExtResource("1_g8m4g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(26.8374, 0, 0, 0, 1, 0, 0, 0, 23.6588, 0, 0, 0)
+transform = Transform3D(8.63102, 0, 0, 0, 1, 0, 0, 0, 8.62909, 0, 0, 0)
 mesh = SubResource("BoxMesh_tv7y3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
@@ -27,8 +20,5 @@ mesh = SubResource("BoxMesh_tv7y3")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_uub2c")
 
-[node name="Character" parent="." instance=ExtResource("1_1uvs6")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.763617, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3vw4n")
+[node name="Player" parent="." instance=ExtResource("1_gdriq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925935, 0)
