@@ -92,10 +92,6 @@ func kill():
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_axis = event.relative
-	if event.is_action_pressed("input"):
-		get_node("Head/CanvasLayer/Control/GUI").killTimerUpdate()
-		
-		
 
 
 func walk(delta: float) -> void:
