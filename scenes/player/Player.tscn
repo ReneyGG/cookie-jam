@@ -54,6 +54,8 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Head/CanvasLayer/Control"]
 position = Vector2(313.936, -153.817)
