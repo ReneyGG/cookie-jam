@@ -118,10 +118,13 @@ extends CharacterBody3D
 
 #region Member Variable Initialization
 
+@onready var gui: Control = $CanvasLayer/Control/GUI
 @onready var raycast = $Head/RayCast3D
 var attack_damage := 1
 var max_health := 5
 var health : int
+var max_adrenaline := 5
+var adrenaline : int
 # These are variables used in this script that don't need to be exposed in the editor.
 var speed : float = base_speed
 var current_speed : float = 0.0
@@ -153,6 +156,9 @@ func _ready():
 	HEAD.rotation.y = rotation.y
 	rotation.y = 0
 	health = max_health
+	adrenaline = max_adrenaline
+	gui.get_node("health_bar").max_value = max_health
+	gui.get_node("adrenaline_bar").max_value = max_adrenaline
 
 	if default_reticle:
 		change_reticle(default_reticle)
@@ -472,5 +478,6 @@ func handle_pausing():
 
 func hit(damage):
 	health -= damage
+	gui.changeHealthBar(health)
 	if health <= 0:
 		print("dead")
