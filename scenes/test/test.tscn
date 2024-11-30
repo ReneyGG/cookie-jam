@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://qdxiw3mg5hy8"]
+[gd_scene load_steps=6 format=3 uid="uid://qdxiw3mg5hy8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://scenes/player/character.tscn" id="1_1uvs6"]
-[ext_resource type="Script" path="res://scenes/test/test.gd" id="1_xre2e"]
 [ext_resource type="PackedScene" uid="uid://dajihw3h0cqnh" path="res://scenes/base_enemy/base_enemy.tscn" id="3_66qh0"]
 [ext_resource type="PackedScene" uid="uid://kdkiolchqwpv" path="res://scenes/gui/pause_menu.tscn" id="4_do1sr"]
 
@@ -11,7 +10,6 @@
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="Test" type="Node3D"]
-script = ExtResource("1_xre2e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(8.63102, 0, 0, 0, 1, 0, 0, 0, 8.62909, 0, 0, 0)
