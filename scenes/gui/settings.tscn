@@ -1,0 +1,135 @@
+[gd_scene load_steps=2 format=3 uid="uid://dche3ed1o6sev"]
+
+[ext_resource type="Script" path="res://scenes/gui/settings.gd" id="1_yjtxs"]
+
+[node name="settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yjtxs")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.5
+offset_right = 164.5
+offset_bottom = 137.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -77.5
+offset_top = 209.0
+offset_right = 77.5
+offset_bottom = 276.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "AUDIO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx_slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = 24.0
+offset_right = 291.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="music_slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = 110.0
+offset_right = 291.5
+offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 50.0
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.0
+offset_top = 320.0
+offset_right = -97.0
+offset_bottom = 387.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.0
+offset_top = 408.0
+offset_right = -97.0
+offset_bottom = 475.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "MUSIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn_back" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.0
+offset_top = -111.0
+offset_right = 121.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label5" type="Label" parent="btn_back"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.5
+offset_top = -33.5
+offset_right = 77.5
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 48
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="btn_back" to="." method="_on_btn_back_pressed"]
