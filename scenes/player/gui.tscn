@@ -1,6 +1,130 @@
-[gd_scene load_steps=2 format=3 uid="uid://bv0apbjda28cv"]
+[gd_scene load_steps=11 format=3 uid="uid://bv0apbjda28cv"]
 
 [ext_resource type="Script" path="res://scenes/player/gui.gd" id="1_gy8ea"]
+[ext_resource type="Texture2D" uid="uid://d1nu4137kf5xw" path="res://assets/dagger1.png" id="2_ngh34"]
+[ext_resource type="Texture2D" uid="uid://c2lvlbnrjpmnj" path="res://assets/dagger2.png" id="3_7s1df"]
+[ext_resource type="Texture2D" uid="uid://be6y68lolhcjm" path="res://assets/dagger3.png" id="4_w3dr4"]
+[ext_resource type="Texture2D" uid="uid://c3vfc7yyf1cf8" path="res://assets/dagger4.png" id="5_uxh4h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yxpgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ngh34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7s1df")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_w3dr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uxh4h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ngh34")
+}],
+"loop": true,
+"name": &"self_attack",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_sds40"]
+resource_name = "attack"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_pdrd0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_sb5ug"]
+resource_name = "self_attack"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"self_attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("hand/AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mmeg"]
+_data = {
+"RESET": SubResource("Animation_pdrd0"),
+"attack": SubResource("Animation_sds40"),
+"self_attack": SubResource("Animation_sb5ug")
+}
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -32,8 +156,7 @@ text = "adrenaline-bar
 "
 
 [node name="adrenaline_timer" type="Timer" parent="adrenaline_bar"]
-wait_time = 0.25
-autostart = true
+wait_time = 0.5
 
 [node name="health_bar" type="ProgressBar" parent="."]
 layout_mode = 0
@@ -80,6 +203,25 @@ theme_override_font_sizes/font_size = 28
 
 [node name="combo_timer" type="Timer" parent="combo_meter"]
 wait_time = 3.0
+
+[node name="hand" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hand"]
+position = Vector2(652, 348)
+sprite_frames = SubResource("SpriteFrames_yxpgc")
+animation = &"attack"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8mmeg")
+}
 
 [connection signal="timeout" from="adrenaline_bar/adrenaline_timer" to="." method="_on_adrenaline_timer_timeout"]
 [connection signal="timeout" from="combo_meter/combo_timer" to="." method="_on_combo_timer_timeout"]
