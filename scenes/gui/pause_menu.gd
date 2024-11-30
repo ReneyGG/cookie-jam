@@ -43,6 +43,7 @@ func _on_btn_options_pressed() -> void:
 	settings.enable = true
 
 func _on_btn_quit_pressed() -> void:
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/gui/main_menu.tscn")
 
 func _process(delta):
