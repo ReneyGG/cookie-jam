@@ -5,10 +5,10 @@ signal enemyKilled()
 var comboCounter = 0
 
 func changeHealthBar(delta: int) -> void:
-	$health_bar.value += delta
+	$health_bar.value = delta
 
 func changeAdrenalineBar(delta: int) -> void:
-	$adrenaline_bar.value += delta
+	$adrenaline_bar.value = delta
 
 func _on_combo_timer_timeout() -> void:
 	$combo_meter/Label2.text = ""

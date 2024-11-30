@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=20 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://scenes/player/character.gd" id="1_0t4e8"]
+[ext_resource type="PackedScene" uid="uid://bv0apbjda28cv" path="res://scenes/player/gui.tscn" id="2_x0eqb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -382,6 +383,20 @@ HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
 COLLISION_MESH = NodePath("Collision")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GUI" parent="CanvasLayer/Control" instance=ExtResource("2_x0eqb")]
+layout_mode = 1
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

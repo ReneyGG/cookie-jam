@@ -11,6 +11,7 @@ offset_top = 1.0
 offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_gy8ea")
 
 [node name="adrenaline_bar" type="ProgressBar" parent="."]
