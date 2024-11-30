@@ -7,6 +7,7 @@ extends CharacterBody3D
 @export var player : Node
 
 @onready var raycast = $RayCast3D
+@onready var animation = $AnimationPlayer
 
 var health : int
 var dead = false
@@ -23,14 +24,17 @@ func _physics_process(delta):
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
 	vec_to_player.y = 0
-	raycast.target_position = vec_to_player * 2.0
+	raycast.target_position = vec_to_player * 1.5
 	
 	move_and_collide(vec_to_player * move_speed * delta)
 	
+	if raycast.is_colliding() and not animation.is_playing():
+		animation.play("attack")
+
+func resolve_attack():
 	if raycast.is_colliding():
 		var coll = raycast.get_collider()
-		if coll != null:
-			coll.hit(attack_damage)
+		coll.hit(attack_damage)
 
 func set_player(p):
 	player = p
