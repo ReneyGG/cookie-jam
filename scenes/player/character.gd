@@ -228,14 +228,14 @@ func handle_jumping():
 func handle_attack():
 	if Input.is_action_just_pressed("attack"):
 		gui.animation_attack()
-		#if raycast.is_colliding():
-		var coll = raycast.get_collider()
-		#coll.hit(attack_damage)
-		health += 0.5
-		if health > max_health:
-			health = max_health
-		gui.changeHealthBar(health)
-		gui.killTimerUpdate()
+		if raycast.is_colliding():
+			var coll = raycast.get_collider()
+			coll.hit(attack_damage)
+			health += 0.5
+			if health > max_health:
+				health = max_health
+			gui.changeHealthBar(health)
+			gui.killTimerUpdate()
 		CAMERA.apply_shake()
 	elif Input.is_action_just_pressed("self_attack"):
 		gui.animation_self_attack()
@@ -245,6 +245,7 @@ func handle_attack():
 
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
+	
 	direction = Vector3(direction.x, 0, direction.y)
 	move_and_slide()
 	if input_dir.x < 0:
