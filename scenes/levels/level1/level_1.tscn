@@ -1186,5 +1186,5 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 42.2135, 1.47467, -19.7
 player = NodePath("../Character")
 
 [node name="BaseEnemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.4863, 1.47467, 3.18915)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.0968, 1.47467, 3.18915)
 player = NodePath("../Character")
