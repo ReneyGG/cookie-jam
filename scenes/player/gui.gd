@@ -5,19 +5,17 @@ signal enemyKilled()
 @onready var animation = $AnimationPlayer
 
 var comboCounter = 0
-var adrenaline_mult := 0.02
 var mouseInput
 
 func _physics_process(delta):
-	$adrenaline_bar.value -= adrenaline_mult
 	if mouseInput:
 		self.position = lerp(self.position, mouseInput * -1, 0.2)
 
-func changeHealthBar(delta: int) -> void:
-	$health_bar.value = delta
+func changeHealthBar(d: float) -> void:
+	$health_bar.value = d
 
-func changeAdrenalineBar(delta: int) -> void:
-	$adrenaline_bar.value = delta
+func changeAdrenalineBar(d: float) -> void:
+	$adrenaline_bar.value = d
 
 func _on_combo_timer_timeout() -> void:
 	$combo_meter/Label2.text = ""

@@ -123,8 +123,14 @@ extends CharacterBody3D
 var attack_damage := 1.0
 var max_health := 5.0
 var health : float
+var target_health : float
 var max_adrenaline := 5.0
 var adrenaline : float
+var target_adrenaline : float
+var adrenaline_mult := 0.1
+var self_hit_adrenaline := 2.0
+var attack_heal := 1.0
+
 # These are variables used in this script that don't need to be exposed in the editor.
 var speed : float = base_speed
 var current_speed : float = 0.0
@@ -157,7 +163,9 @@ func _ready():
 	HEAD.rotation.y = rotation.y
 	rotation.y = 0
 	health = max_health
+	target_health = max_health
 	adrenaline = max_adrenaline
+	target_adrenaline = max_adrenaline
 	gui.get_node("health_bar").max_value = max_health
 	gui.get_node("adrenaline_bar").max_value = max_adrenaline
 
@@ -180,7 +188,9 @@ func _physics_process(delta): # Most things happen here.
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
 		velocity.y -= gravity * delta
-
+	
+	target_adrenaline -= adrenaline_mult
+	
 	handle_jumping()
 
 	var input_dir = Vector2.ZERO
@@ -207,6 +217,21 @@ func _physics_process(delta): # Most things happen here.
 
 
 	was_on_floor = is_on_floor() # This must always be at the end of physics_process
+	
+	#if health <= 0:
+		#print("dead")
+	#if health >= max_health:
+		#print("over-heal")
+	#if adrenaline <= 0:
+		#print("dead")
+	#if adrenaline >= max_adrenaline:
+		#print("over-adrenaline")
+	target_health = clamp(target_health,0,max_health)
+	target_adrenaline = clamp(target_adrenaline,0,max_adrenaline)
+	health = lerp(health, target_health, 0.1)
+	adrenaline = lerp(adrenaline, target_adrenaline, 0.1)
+	gui.changeHealthBar(health)
+	gui.changeAdrenalineBar(adrenaline)
 
 #endregion
 
@@ -231,16 +256,12 @@ func handle_attack():
 		if raycast.is_colliding():
 			var coll = raycast.get_collider()
 			coll.hit(attack_damage)
-			health += 0.5
-			if health > max_health:
-				health = max_health
-			gui.changeHealthBar(health)
+			target_health += attack_heal
 			gui.killTimerUpdate()
 		CAMERA.apply_shake()
 	elif Input.is_action_just_pressed("self_attack"):
 		gui.animation_self_attack()
-		adrenaline += 0.5
-		gui.changeAdrenalineBar(adrenaline)
+		target_adrenaline += self_hit_adrenaline
 		hit(attack_damage)
 
 func handle_movement(delta, input_dir):
@@ -491,7 +512,4 @@ func handle_pausing():
 
 func hit(damage):
 	CAMERA.apply_shake()
-	health -= damage
-	gui.changeHealthBar(health)
-	if health <= 0:
-		print("dead")
+	target_health -= damage
