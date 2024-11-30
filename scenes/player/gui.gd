@@ -10,7 +10,6 @@ func changeHealthBar(delta: int) -> void:
 func changeAdrenalineBar(delta: int) -> void:
 	$adrenaline_bar.value += delta
 
-
 func _on_combo_timer_timeout() -> void:
 	$combo_meter/Label2.text = ""
 	comboCounter = 0

@@ -145,6 +145,7 @@ var mouseInput : Vector2 = Vector2(0,0)
 
 #region Main Control Flow
 
+
 func _ready():
 	#It is safe to comment this line if your game doesn't start with the mouse captured
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

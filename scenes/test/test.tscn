@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://qdxiw3mg5hy8"]
+[gd_scene load_steps=7 format=3 uid="uid://qdxiw3mg5hy8"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://scenes/player/character.tscn" id="1_1uvs6"]
 [ext_resource type="Script" path="res://scenes/test/test.gd" id="1_xre2e"]
 [ext_resource type="PackedScene" uid="uid://dajihw3h0cqnh" path="res://scenes/base_enemy/base_enemy.tscn" id="3_66qh0"]
+[ext_resource type="PackedScene" uid="uid://kdkiolchqwpv" path="res://scenes/gui/pause_menu.tscn" id="4_do1sr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tv7y3"]
 
@@ -25,8 +26,9 @@ shape = SubResource("ConcavePolygonShape3D_uub2c")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.763617, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_3vw4n")
 
 [node name="BaseEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_66qh0")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.18698, -7.67819)
 player = NodePath("../Character")
+
+[node name="pause_menu" parent="." instance=ExtResource("4_do1sr")]
