@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dt3dj551lw57f"
-path="res://.godot/imported/prisonner.png-cea8b7ed40f63f413f2a621786fe4552.ctex"
+uid="uid://be6y68lolhcjm"
+path="res://.godot/imported/dagger3.png-c977ee94ba7ac91ae6cdaeff5584399c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/prisonner.png"
-dest_files=["res://.godot/imported/prisonner.png-cea8b7ed40f63f413f2a621786fe4552.ctex"]
+source_file="res://assets/dagger3.png"
+dest_files=["res://.godot/imported/dagger3.png-c977ee94ba7ac91ae6cdaeff5584399c.ctex"]
 
 [params]
 

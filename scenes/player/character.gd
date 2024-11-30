@@ -120,11 +120,11 @@ extends CharacterBody3D
 
 @onready var gui: Control = $CanvasLayer/Control/GUI
 @onready var raycast = $Head/RayCast3D
-var attack_damage := 1
-var max_health := 5
-var health : int
-var max_adrenaline := 5
-var adrenaline : int
+var attack_damage := 1.0
+var max_health := 5.0
+var health : float
+var max_adrenaline := 5.0
+var adrenaline : float
 # These are variables used in this script that don't need to be exposed in the editor.
 var speed : float = base_speed
 var current_speed : float = 0.0
@@ -227,10 +227,20 @@ func handle_jumping():
 
 func handle_attack():
 	if Input.is_action_just_pressed("attack"):
-		if raycast.is_colliding():
-			var coll = raycast.get_collider()
-			coll.hit(attack_damage)
+		gui.animation_attack()
+		#if raycast.is_colliding():
+		var coll = raycast.get_collider()
+		#coll.hit(attack_damage)
+		health += 0.5
+		if health > max_health:
+			health = max_health
+		gui.changeHealthBar(health)
+		gui.killTimerUpdate()
+		CAMERA.apply_shake()
 	elif Input.is_action_just_pressed("self_attack"):
+		gui.animation_self_attack()
+		adrenaline += 0.5
+		gui.changeAdrenalineBar(adrenaline)
 		hit(attack_damage)
 
 func handle_movement(delta, input_dir):
@@ -446,6 +456,7 @@ func _unhandled_input(event : InputEvent):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		mouseInput.x += event.relative.x
 		mouseInput.y += event.relative.y
+		gui.mouseInput = mouseInput
 
 #region Misc Functions
 
@@ -478,6 +489,7 @@ func handle_pausing():
 #endregion
 
 func hit(damage):
+	CAMERA.apply_shake()
 	health -= damage
 	gui.changeHealthBar(health)
 	if health <= 0:
