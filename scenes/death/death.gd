@@ -7,7 +7,7 @@ func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func _on_retry_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/test/test.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level1/level_1.tscn")
 
 func _on_menu_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/gui/main_menu.tscn")
