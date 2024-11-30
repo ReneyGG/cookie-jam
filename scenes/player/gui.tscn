@@ -1,10 +1,41 @@
-[gd_scene load_steps=11 format=3 uid="uid://bv0apbjda28cv"]
+[gd_scene load_steps=15 format=3 uid="uid://bv0apbjda28cv"]
 
 [ext_resource type="Script" path="res://scenes/player/gui.gd" id="1_gy8ea"]
+[ext_resource type="Shader" path="res://scenes/player/perspective.gdshader" id="2_gmlob"]
 [ext_resource type="Texture2D" uid="uid://d1nu4137kf5xw" path="res://assets/dagger1.png" id="2_ngh34"]
 [ext_resource type="Texture2D" uid="uid://c2lvlbnrjpmnj" path="res://assets/dagger2.png" id="3_7s1df"]
 [ext_resource type="Texture2D" uid="uid://be6y68lolhcjm" path="res://assets/dagger3.png" id="4_w3dr4"]
 [ext_resource type="Texture2D" uid="uid://c3vfc7yyf1cf8" path="res://assets/dagger4.png" id="5_uxh4h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3yg4"]
+shader = ExtResource("2_gmlob")
+shader_parameter/isInRadians = false
+shader_parameter/xRadians = 0.0
+shader_parameter/yRadians = null
+shader_parameter/zRadians = null
+shader_parameter/xDegrees = 340.0
+shader_parameter/yDegrees = 20.0
+shader_parameter/zDegrees = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xwv3u"]
+shader = ExtResource("2_gmlob")
+shader_parameter/isInRadians = false
+shader_parameter/xRadians = null
+shader_parameter/yRadians = null
+shader_parameter/zRadians = null
+shader_parameter/xDegrees = 340.0
+shader_parameter/yDegrees = 20.0
+shader_parameter/zDegrees = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gpi7"]
+shader = ExtResource("2_gmlob")
+shader_parameter/isInRadians = false
+shader_parameter/xRadians = null
+shader_parameter/yRadians = null
+shader_parameter/zRadians = null
+shader_parameter/xDegrees = 340.0
+shader_parameter/yDegrees = 340.0
+shader_parameter/zDegrees = null
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yxpgc"]
 animations = [{
@@ -139,14 +170,17 @@ mouse_filter = 2
 script = ExtResource("1_gy8ea")
 
 [node name="adrenaline_bar" type="ProgressBar" parent="."]
+material = SubResource("ShaderMaterial_r3yg4")
 layout_mode = 0
-offset_left = 50.0
-offset_top = 480.0
-offset_right = 450.0
-offset_bottom = 540.0
+offset_left = 20.0
+offset_top = 504.0
+offset_right = 420.0
+offset_bottom = 564.0
+scale = Vector2(0.74, 0.74)
 show_percentage = false
 
 [node name="Label" type="Label" parent="adrenaline_bar"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 11.0
 offset_top = -3.0
@@ -160,14 +194,17 @@ text = "adrenaline-bar
 wait_time = 0.5
 
 [node name="health_bar" type="ProgressBar" parent="."]
+material = SubResource("ShaderMaterial_xwv3u")
 layout_mode = 0
-offset_left = 50.0
-offset_top = 550.0
-offset_right = 450.0
-offset_bottom = 610.0
+offset_left = 20.0
+offset_top = 574.0
+offset_right = 420.0
+offset_bottom = 634.0
+scale = Vector2(0.74, 0.74)
 show_percentage = false
 
 [node name="Label" type="Label" parent="health_bar"]
+use_parent_material = true
 layout_mode = 0
 offset_left = 19.0
 offset_top = -6.0
@@ -178,13 +215,15 @@ text = "health-bar
 "
 
 [node name="combo_meter" type="Control" parent="."]
+material = SubResource("ShaderMaterial_2gpi7")
 anchors_preset = 0
-offset_left = 944.0
-offset_top = 7.0
-offset_right = 1140.0
-offset_bottom = 140.0
+offset_left = 957.0
+offset_top = 6.0
+offset_right = 1153.0
+offset_bottom = 139.0
 
 [node name="Label" type="Label" parent="combo_meter"]
+use_parent_material = true
 layout_mode = 2
 offset_left = 26.0
 offset_top = 12.0
@@ -194,6 +233,7 @@ theme_override_font_sizes/font_size = 28
 text = "combo"
 
 [node name="Label2" type="Label" parent="combo_meter"]
+use_parent_material = true
 layout_mode = 2
 offset_left = 126.0
 offset_top = 60.0
