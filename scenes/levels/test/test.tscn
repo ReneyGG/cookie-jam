@@ -47,4 +47,7 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.7
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 7.90913, 2.18698, 0.508093)
 player = NodePath("../Character")
 
-[node name="pause_menu" parent="." instance=ExtResource("3_sw0qf")]
+[node name="pause_menu" parent="." instance=ExtResource("4_do1sr")]
+
+[node name="Character" parent="." instance=ExtResource("1_1uvs6")]
+transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0.63117, 0)

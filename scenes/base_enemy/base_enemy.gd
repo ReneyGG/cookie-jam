@@ -12,14 +12,28 @@ extends CharacterBody3D
 var health : int
 var dead = false
 
+enum state_machine {
+	IDLE,
+	ATTACK,
+}
+
+var state : state_machine
+
 func _ready():
 	health = max_health
+	state = state_machine.IDLE
 
 func _physics_process(delta):
 	if dead:
 		return
 	if player == null:
 		return
+	
+	match state:
+		state_machine.IDLE:
+			pass
+		state_machine.ATTACK:
+			pass
 	
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
@@ -28,8 +42,11 @@ func _physics_process(delta):
 	
 	move_and_collide(vec_to_player * move_speed * delta)
 	
-	if raycast.is_colliding() and not animation.is_playing():
+	if raycast.is_colliding() and animation.current_animation != "attack":
 		animation.play("attack")
+	
+	if not animation.is_playing():
+		animation.play("idle")
 
 func resolve_attack():
 	if raycast.is_colliding():

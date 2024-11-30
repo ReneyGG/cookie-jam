@@ -1,0 +1,170 @@
+[gd_scene load_steps=16 format=3 uid="uid://cw4uvmids3wr0"]
+
+[ext_resource type="Script" path="res://scenes/death/death.gd" id="1_dw4gh"]
+[ext_resource type="Texture2D" uid="uid://b84hq63xkaw2b" path="res://assets/death_screens/kaltka0000.png" id="1_hxd5a"]
+[ext_resource type="Texture2D" uid="uid://dbm6hey1rntqs" path="res://assets/death_screens/kaltka0001.png" id="2_1kjh8"]
+[ext_resource type="Texture2D" uid="uid://cxtqwpv1fap3t" path="res://assets/death_screens/kaltka0002.png" id="3_vnb0j"]
+[ext_resource type="Texture2D" uid="uid://dlqi2cp4buo42" path="res://assets/death_screens/kaltka0003.png" id="4_vack7"]
+[ext_resource type="Texture2D" uid="uid://svwh51ekfoap" path="res://assets/death_screens/kaltka0004.png" id="5_8y884"]
+[ext_resource type="Texture2D" uid="uid://cyfnj4owmo2ag" path="res://assets/death_screens/kaltka0005.png" id="6_l1wdm"]
+[ext_resource type="Texture2D" uid="uid://co3rewla3dg58" path="res://assets/death_screens/kaltka0006.png" id="7_m37vo"]
+[ext_resource type="Texture2D" uid="uid://clp7v7qi0este" path="res://assets/death_screens/kaltka0007.png" id="8_4brvj"]
+[ext_resource type="Texture2D" uid="uid://cx5crjvx8m4f1" path="res://assets/death_screens/kaltka0008.png" id="9_a8y5o"]
+[ext_resource type="Texture2D" uid="uid://dw0bvxwk4i81t" path="res://assets/death_screens/kaltka0009.png" id="10_kseng"]
+[ext_resource type="Texture2D" uid="uid://dwofllkdi1itm" path="res://assets/death_screens/kaltka0010.png" id="11_yxx61"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wd1vu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hxd5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1kjh8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vnb0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vack7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8y884")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l1wdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m37vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_4brvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a8y5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kseng")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_yxx61")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_ci81a"]
+resource_name = "powerpoint"
+length = 1.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screens:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screens:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o3m7h"]
+_data = {
+"powerpoint": SubResource("Animation_ci81a")
+}
+
+[node name="Death" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_dw4gh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -432.0
+offset_right = -115.0
+offset_bottom = -409.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+text = "Game Over"
+
+[node name="RetryButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -117.0
+offset_right = -81.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+text = "Retry"
+
+[node name="MenuButton" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = 77.0
+offset_right = -81.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+text = "Menu"
+
+[node name="Screens" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_wd1vu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o3m7h")
+}
+
+[connection signal="pressed" from="Control/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Control/MenuButton" to="." method="_on_menu_button_pressed"]

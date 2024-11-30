@@ -25,7 +25,7 @@ shader_parameter/yRadians = null
 shader_parameter/zRadians = null
 shader_parameter/xDegrees = 340.0
 shader_parameter/yDegrees = 20.0
-shader_parameter/zDegrees = null
+shader_parameter/zDegrees = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2gpi7"]
 shader = ExtResource("2_gmlob")
@@ -172,11 +172,11 @@ script = ExtResource("1_gy8ea")
 [node name="adrenaline_bar" type="ProgressBar" parent="."]
 material = SubResource("ShaderMaterial_r3yg4")
 layout_mode = 0
-offset_left = 20.0
-offset_top = 504.0
-offset_right = 420.0
-offset_bottom = 564.0
-scale = Vector2(0.74, 0.74)
+offset_left = 33.0
+offset_top = 828.0
+offset_right = 433.0
+offset_bottom = 888.0
+scale = Vector2(1.2, 1.2)
 show_percentage = false
 
 [node name="Label" type="Label" parent="adrenaline_bar"]
@@ -196,11 +196,11 @@ wait_time = 0.5
 [node name="health_bar" type="ProgressBar" parent="."]
 material = SubResource("ShaderMaterial_xwv3u")
 layout_mode = 0
-offset_left = 20.0
-offset_top = 574.0
-offset_right = 420.0
-offset_bottom = 634.0
-scale = Vector2(0.74, 0.74)
+offset_left = 33.0
+offset_top = 920.0
+offset_right = 433.0
+offset_bottom = 980.0
+scale = Vector2(1.2, 1.2)
 show_percentage = false
 
 [node name="Label" type="Label" parent="health_bar"]
@@ -217,10 +217,11 @@ text = "health-bar
 [node name="combo_meter" type="Control" parent="."]
 material = SubResource("ShaderMaterial_2gpi7")
 anchors_preset = 0
-offset_left = 957.0
-offset_top = 6.0
-offset_right = 1153.0
-offset_bottom = 139.0
+offset_left = 1524.0
+offset_top = -2.0
+offset_right = 1720.0
+offset_bottom = 131.0
+scale = Vector2(2, 2)
 
 [node name="Label" type="Label" parent="combo_meter"]
 use_parent_material = true
@@ -246,15 +247,18 @@ wait_time = 3.0
 
 [node name="hand" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
+grow_vertical = 0
 mouse_filter = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="hand"]
-position = Vector2(652, 348)
+position = Vector2(-1000, -600)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_yxpgc")
 animation = &"attack"
 
