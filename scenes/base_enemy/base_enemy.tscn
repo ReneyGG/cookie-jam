@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bcxa51yk7m66v" path="res://assets/player/Idle-4.png" id="14_ssarg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2dfyv"]
-size = Vector3(1, 3.206, 1)
+size = Vector3(1.5, 5.76, 1.5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iiyko"]
 animations = [{
@@ -188,7 +188,7 @@ target_position = Vector3(0, 0, 2)
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.065033, 0.139282, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.416, 0)
 shape = SubResource("BoxShape3D_2dfyv")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]
