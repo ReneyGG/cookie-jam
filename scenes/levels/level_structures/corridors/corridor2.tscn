@@ -21,6 +21,7 @@ albedo_texture = ExtResource("1_xob2x")
 [node name="corridor2" type="Node3D"]
 script = ExtResource("1_ovaeb")
 length = 6
+weight = 15
 
 [node name="start" type="Marker3D" parent="."]
 

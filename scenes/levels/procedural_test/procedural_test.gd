@@ -29,8 +29,3 @@ func random_corridor() -> void:
 		initialize_corridors(scenes[rand])
 		y += scenes_instance[i].length
 		i += 1
-		
-		
-		
-		
-		
