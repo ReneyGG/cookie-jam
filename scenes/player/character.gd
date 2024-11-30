@@ -50,6 +50,8 @@ extends CharacterBody3D
 ## A reference to the the player's collision shape for use in the character script.
 @export var COLLISION_MESH : CollisionShape3D
 
+var is_timer_on := false
+
 #endregion
 
 #region Controls Export Group
@@ -127,8 +129,8 @@ var target_health : float
 var max_adrenaline := 5.0
 var adrenaline : float
 var target_adrenaline : float
-var adrenaline_mult := 0.1
-var self_hit_adrenaline := 2.0
+var adrenaline_mult := 0.01
+var self_hit_adrenaline := 1.5
 var attack_heal := 1.0
 
 # These are variables used in this script that don't need to be exposed in the editor.
@@ -184,12 +186,14 @@ func _process(_delta):
 
 func _physics_process(delta): # Most things happen here.
 	# Gravity
+	speed = 6 + adrenaline
+	
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	if not is_on_floor() and gravity and gravity_enabled:
 		velocity.y -= gravity * delta
 	
-	target_adrenaline -= adrenaline_mult
+	
 	
 	handle_jumping()
 
@@ -227,12 +231,19 @@ func _physics_process(delta): # Most things happen here.
 	#if adrenaline >= max_adrenaline:
 		#print("over-adrenaline")
 	target_health = clamp(target_health,0,max_health)
-	target_adrenaline = clamp(target_adrenaline,0,max_adrenaline)
 	health = lerp(health, target_health, 0.1)
-	adrenaline = lerp(adrenaline, target_adrenaline, 0.1)
 	gui.changeHealthBar(health)
-	gui.changeAdrenalineBar(adrenaline)
-
+	if(is_timer_on):
+		target_adrenaline = clamp(target_adrenaline,0,max_adrenaline)
+		adrenaline = lerp(adrenaline, target_adrenaline, 0.1)
+		gui.changeAdrenalineBar(adrenaline)
+	else:
+		target_adrenaline -= adrenaline_mult
+		target_adrenaline = clamp(target_adrenaline,0,max_adrenaline)
+		adrenaline = lerp(adrenaline, target_adrenaline, 0.1)
+		gui.changeHealthBar(health)
+		gui.changeAdrenalineBar(adrenaline)
+	
 #endregion
 
 #region Input Handling
@@ -263,6 +274,9 @@ func handle_attack():
 		gui.animation_self_attack()
 		target_adrenaline += self_hit_adrenaline
 		hit(attack_damage)
+		$Timer.start()
+		is_timer_on = true
+		print("timer start")
 
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
@@ -513,3 +527,9 @@ func handle_pausing():
 func hit(damage):
 	CAMERA.apply_shake()
 	target_health -= damage
+
+
+func _on_timer_timeout() -> void:
+	is_timer_on = false
+	print("timer stop")
+	pass # Replace with function body.

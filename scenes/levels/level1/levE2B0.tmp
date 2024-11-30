@@ -16,8 +16,6 @@ size = Vector3(1, 0.0405273, 1)
 [node name="level_terrain" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
-[node name="Node3D" type="Node3D" parent="level_terrain"]
-
 [node name="long_corridor" type="MultiMeshInstance3D" parent="level_terrain"]
 
 [node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="level_terrain/long_corridor"]
@@ -596,7 +594,7 @@ skeleton = NodePath("../../../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00170898, 0)
 shape = SubResource("BoxShape3D_iemna")
 
-[node name="corridor" type="Node3D" parent="level_terrain"]
+[node name="corridor" type="MultiMeshInstance3D" parent="level_terrain"]
 
 [node name="MultiMeshInstance3D18" type="MultiMeshInstance3D" parent="level_terrain/corridor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9072, 0, -1)
@@ -1165,26 +1163,20 @@ shape = SubResource("BoxShape3D_iemna")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 
-[node name="BaseEnemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
+[node name="BaseEnemy" parent="." instance=ExtResource("2_qmemc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 27.305, 1.47467, -0.0271602)
-player = NodePath("../Character")
 
-[node name="BaseEnemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
+[node name="BaseEnemy2" parent="." instance=ExtResource("2_qmemc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 47.0644, 1.47467, -5.58118)
-player = NodePath("../Character")
 
-[node name="BaseEnemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.5296, 1.47467, -2.6499)
-player = NodePath("../Character")
+[node name="BaseEnemy3" parent="." instance=ExtResource("2_qmemc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 63.0209, 1.47467, 8.70787)
 
-[node name="BaseEnemy4" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 46.93, 1.47467, -17.6436)
-player = NodePath("../Character")
+[node name="BaseEnemy4" parent="." instance=ExtResource("2_qmemc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 113.03, 1.47467, -6.80416)
 
-[node name="BaseEnemy5" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 42.2135, 1.47467, -19.7419)
-player = NodePath("../Character")
+[node name="BaseEnemy5" parent="." instance=ExtResource("2_qmemc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 97.732, 1.47467, -22.2309)
 
-[node name="BaseEnemy6" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_qmemc")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.4863, 1.47467, 3.18915)
-player = NodePath("../Character")
+[node name="BaseEnemy6" parent="." instance=ExtResource("2_qmemc")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 110.703, 1.47467, -41.369)
