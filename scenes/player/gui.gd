@@ -11,10 +11,14 @@ var mouseInput
 
 func _ready():
 	$FlashPos.color = Color(0.0, 0.0, 0.0, 0.0)
+	$Splash.frame = 0
 
 func _physics_process(_delta):
 	if mouseInput:
 		self.position = lerp(self.position, mouseInput * -1, 0.2)
+	
+	if not animation.is_playing():
+		animation.play("idle")
 
 func get_hit():
 	flash_animation.play("flash_neg")

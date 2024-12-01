@@ -370,9 +370,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 [node name="Camera" type="Camera3D" parent="Head"]
 process_mode = 3
 current = true
-fov = 90.0
+fov = 100.0
 script = ExtResource("3_fva2b")
-randomStrength = 0.3
+randomStrength = 0.2
 shakeFade = 10.0
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head"]
