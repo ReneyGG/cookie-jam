@@ -560,7 +560,7 @@ var i = 0
 
 func initialize_corridors(Vector3) -> void:
 	enemies_instance.append(BASE_ENEMY.instantiate())
-	self.add_child(enemies_instance[i])
+	get_parent().get_parent().get_node("Enemies").add_child(enemies_instance[i])
 	enemies_instance[i].global_position = Vector3
 	enemies_instance[i].player = character
 	enemies_instance[i].set_collision_layer_value(3, false)

@@ -8,9 +8,11 @@ extends CharacterBody3D
 
 @onready var raycast = $RayCast3D
 @onready var animation = $AnimationPlayer
+@onready var floor_ray = $Floor
 
 var health : int
 var dead = false
+var gravity : float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 enum state_machine {
 	IDLE,
@@ -49,10 +51,17 @@ func _physics_process(delta):
 	
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
-	vec_to_player.y = 0
-	raycast.target_position = vec_to_player * 3
+	#vec_to_player.y = 0
+	#raycast.target_position = vec_to_player * 3
+	#if not floor_ray.is_colliding():
+		#vec_to_player.y -= gravity * delta
+	#move_and_collide(vec_to_player * move_speed * delta)
 	
-	move_and_collide(vec_to_player * move_speed * delta)
+	
+	velocity.y -= gravity * delta
+	velocity.x = vec_to_player.x * move_speed
+	velocity.z = vec_to_player.z * move_speed
+	move_and_slide()
 	
 	if raycast.is_colliding() and animation.current_animation == "walk":
 		var ind = [1,2].pick_random()
@@ -60,8 +69,6 @@ func _physics_process(delta):
 	
 	if not animation.is_playing():
 		animation.play("walk")
-	
-	print(state)
 
 func resolve_attack():
 	if raycast.is_colliding():
