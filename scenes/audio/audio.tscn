@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://5p82juvdmoaj"]
 
-[ext_resource type="AudioStream" uid="uid://f4eebq1fqqne" path="res://music/Dzwiek_umierania.mp3" id="1_8g4c3"]
+[ext_resource type="AudioStream" uid="uid://n7iuwp87ipe6" path="res://music/Dzwiek_umierania.mp3" id="1_8g4c3"]
 [ext_resource type="Script" path="res://scenes/audio/audio.gd" id="1_nanai"]
 [ext_resource type="AudioStream" uid="uid://cp0knq1mhsk8x" path="res://music/dźganie siebie.mp3" id="2_le0em"]
 [ext_resource type="AudioStream" uid="uid://cjscpuhso3edh" path="res://music/dźganiekogoś.mp3" id="3_rb8qj"]
-[ext_resource type="AudioStream" uid="uid://kwve1st0j81e" path="res://music/HOVER.mp3" id="4_gbe75"]
-[ext_resource type="AudioStream" uid="uid://cvt8e110gcudh" path="res://music/KLAWISZE.mp3" id="5_aeii7"]
+[ext_resource type="AudioStream" uid="uid://bp7apt7bwcb4b" path="res://music/HOVER.mp3" id="4_gbe75"]
+[ext_resource type="AudioStream" uid="uid://chae3cvdae6mg" path="res://music/KLAWISZE.mp3" id="5_aeii7"]
 
 [node name="Audio" type="Node"]
 process_mode = 3

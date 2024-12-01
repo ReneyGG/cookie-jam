@@ -28,7 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c1i5555hb7rwa" path="res://assets/12.png" id="26_rtmt4"]
 [ext_resource type="Texture2D" uid="uid://mdqtlxp3iviq" path="res://assets/13.png" id="27_ixlaf"]
 [ext_resource type="FontFile" uid="uid://dfu7jrrm5oqfg" path="res://Blue Screen Personal Use.ttf" id="28_xk5l6"]
-[ext_resource type="AudioStream" uid="uid://b22whhg2xsxsi" path="res://music/pisanie.mp3" id="29_j7rfw"]
+[ext_resource type="AudioStream" uid="uid://dyh6bk3bm141n" path="res://music/pisanie.mp3" id="29_j7rfw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5d8kt"]
 animations = [{
