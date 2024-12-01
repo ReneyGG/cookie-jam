@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://5p82juvdmoaj"]
+
+[ext_resource type="AudioStream" uid="uid://f4eebq1fqqne" path="res://music/Dzwiek_umierania.mp3" id="1_8g4c3"]
+[ext_resource type="Script" path="res://scenes/audio/audio.gd" id="1_nanai"]
+[ext_resource type="AudioStream" uid="uid://cp0knq1mhsk8x" path="res://music/dźganie siebie.mp3" id="2_le0em"]
+[ext_resource type="AudioStream" uid="uid://cjscpuhso3edh" path="res://music/dźganiekogoś.mp3" id="3_rb8qj"]
+[ext_resource type="AudioStream" uid="uid://kwve1st0j81e" path="res://music/HOVER.mp3" id="4_gbe75"]
+[ext_resource type="AudioStream" uid="uid://cvt8e110gcudh" path="res://music/KLAWISZE.mp3" id="5_aeii7"]
+
+[node name="Audio" type="Node"]
+process_mode = 3
+script = ExtResource("1_nanai")
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8g4c3")
+
+[node name="StabSelf" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_le0em")
+
+[node name="Stab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rb8qj")
+
+[node name="Hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gbe75")
+
+[node name="Press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_aeii7")
+
+[connection signal="finished" from="Death" to="." method="finished"]
+[connection signal="finished" from="StabSelf" to="." method="finished"]
+[connection signal="finished" from="Stab" to="." method="finished"]
+[connection signal="finished" from="Hover" to="." method="finished"]
+[connection signal="finished" from="Press" to="." method="finished"]

@@ -9,6 +9,7 @@ var y = 0
 var i = 0
 
 func _ready() -> void:
+	MainTheme.play()
 	random_corridor()
 	pass
 
