@@ -12,6 +12,7 @@ var is_it_start:= true
 
 func _ready() -> void:
 	start_corridors()
+	MainTheme.play()
 
 
 func initialize_corridors(scene: PackedScene) -> void:

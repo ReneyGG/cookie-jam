@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Freeze="*res://scenes/freeze/freeze.tscn"
 Audio="*res://scenes/audio/audio.tscn"
+MainTheme="*res://scenes/main_theme/main_theme.tscn"
 
 [display]
 
