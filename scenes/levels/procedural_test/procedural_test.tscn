@@ -10,14 +10,14 @@
 [ext_resource type="PackedScene" uid="uid://cwwwd4oyjrew2" path="res://scenes/levels/level_structures/corridors/corridor6_down.tscn" id="7_h2u3c"]
 [ext_resource type="PackedScene" uid="uid://bb04cm0j47rtd" path="res://scenes/levels/level_structures/corridors/corridor7_up.tscn" id="8_qaor6"]
 [ext_resource type="PackedScene" uid="uid://l4q0u3c2a6x" path="res://scenes/levels/level_structures/corridors/corridor_8.tscn" id="9_l6pfr"]
-[ext_resource type="PackedScene" uid="uid://cmk1x1wi30gr6" path="res://scenes/levels/level_structures/corridors/corridor_11.tscn" id="10_wyb42"]
-[ext_resource type="PackedScene" uid="uid://ci127tdpib087" path="res://scenes/levels/level_structures/corridors/corridor_12.tscn" id="11_3ynyf"]
-[ext_resource type="PackedScene" uid="uid://crj8jgqwtqfwl" path="res://scenes/levels/level_structures/corridors/corridor_13.tscn" id="12_q7wld"]
-[ext_resource type="PackedScene" uid="uid://bch8bql4fdid5" path="res://scenes/levels/level_structures/corridors/corridor_14.tscn" id="13_tta03"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_structures/corridors/corridor_11.tscn" id="10_wyb42"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_structures/corridors/corridor_12.tscn" id="11_3ynyf"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_structures/corridors/corridor_13.tscn" id="12_q7wld"]
+[ext_resource type="PackedScene" path="res://scenes/levels/level_structures/corridors/corridor_14.tscn" id="13_tta03"]
 
 [sub_resource type="Environment" id="Environment_42dmi"]
 ambient_light_source = 2
-ambient_light_color = Color(0.326321, 0.99523, 0, 1)
+ambient_light_color = Color(0, 1, 0, 1)
 ambient_light_energy = 8.45
 
 [node name="procedural_test" type="Node3D"]
