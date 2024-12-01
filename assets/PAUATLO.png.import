@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5ujn0voqsjcl"
-path="res://.godot/imported/Heart-8.png-d212c20b8bc80874a687f4c63eee84f7.ctex"
+uid="uid://ctkyuaiiyajsj"
+path="res://.godot/imported/PAUATLO.png-c3f52314c5982da15c7c0ed015b2bdf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/Heart-8.png"
-dest_files=["res://.godot/imported/Heart-8.png-d212c20b8bc80874a687f4c63eee84f7.ctex"]
+source_file="res://assets/PAUATLO.png"
+dest_files=["res://.godot/imported/PAUATLO.png-c3f52314c5982da15c7c0ed015b2bdf8.ctex"]
 
 [params]
 

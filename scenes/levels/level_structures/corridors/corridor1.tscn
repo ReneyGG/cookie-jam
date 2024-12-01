@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://chf366nq0jv0s"]
+[gd_scene load_steps=12 format=3 uid="uid://chf366nq0jv0s"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_gjgne"]
 [ext_resource type="Texture2D" uid="uid://354jnv5q5o6u" path="res://assets/Grid-Level2.png" id="1_spp03"]
 [ext_resource type="Texture2D" uid="uid://cfxe2cjx31mvv" path="res://assets/Ściana4a.png" id="3_4k0p0"]
 [ext_resource type="Texture2D" uid="uid://brjnp85061yib" path="res://assets/podloga2.png" id="4_ajiou"]
+[ext_resource type="PackedScene" uid="uid://onkit5wxjuih" path="res://scenes/levels/level_structures/enemy.tscn" id="5_lg2hc"]
+[ext_resource type="PackedScene" uid="uid://dspjtac0xgeob" path="res://scenes/levels/level_structures/level_end.tscn" id="6_3o85w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubdpj"]
 albedo_texture = ExtResource("1_spp03")
@@ -19,9 +21,6 @@ size = Vector3(1, 0.0578613, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15w6h"]
 albedo_texture = ExtResource("4_ajiou")
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_7lai1"]
-size = Vector3(0.2, 0.1, 0.2)
 
 [node name="corridor1" type="Node3D"]
 script = ExtResource("1_gjgne")
@@ -183,11 +182,8 @@ shape = SubResource("BoxShape3D_prdph")
 [node name="end" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="enemy" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35154, 2)
-collision_layer = 4
-collision_mask = 4
+[node name="enemy" parent="." instance=ExtResource("5_lg2hc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15154, 1.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.05, 0)
-shape = SubResource("BoxShape3D_7lai1")
+[node name="level_end" parent="." instance=ExtResource("6_3o85w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)

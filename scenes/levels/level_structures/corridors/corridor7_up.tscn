@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bb04cm0j47rtd"]
+[gd_scene load_steps=12 format=3 uid="uid://bb04cm0j47rtd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_35c6p"]
+[ext_resource type="PackedScene" uid="uid://dspjtac0xgeob" path="res://scenes/levels/level_structures/level_end.tscn" id="2_1t21a"]
 [ext_resource type="Texture2D" uid="uid://ye7lhmgynm3t" path="res://assets/podloga5.png" id="2_hrime"]
 [ext_resource type="Texture2D" uid="uid://c77dx60e445ie" path="res://assets/Ściana1a.png" id="3_t2al5"]
 
@@ -29,6 +30,9 @@ size = Vector3(1, 0.0578613, 1)
 transform = Transform3D(-1, 1.50996e-07, 1.50996e-07, -1.50996e-07, -1, 0, -1.50996e-07, 2.27997e-14, -1, 0, 0, 0)
 script = ExtResource("1_35c6p")
 length = 4
+
+[node name="level_end" parent="." instance=ExtResource("2_1t21a")]
+transform = Transform3D(-1, -8.74228e-08, 3.01992e-07, 8.74228e-08, -1, -5.87999e-14, 3.01992e-07, -3.23989e-14, 1, -9.05976e-07, -1, -5)
 
 [node name="corridor01" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 9.23218e-21, 1, 2.64009e-14, 1.74846e-07, -2.64009e-14, 1, -1.15835e-06, -1, -1)

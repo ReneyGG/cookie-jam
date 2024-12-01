@@ -34,7 +34,7 @@ extends CharacterBody3D
 
 var enemies_instance : Array
 const BASE_ENEMY = preload("res://scenes/base_enemy/base_enemy.tscn")
-
+signal new_corridor
 #endregion
 
 #region Nodes Export Group
@@ -233,8 +233,6 @@ func _physics_process(delta): # Most things happen here.
 		dead = true
 		get_tree().paused = true
 		CAMERA.apply_shake()
-		MainTheme.stop()
-		Audio.play("death")
 		$DeathFrameTimer.start(0.1)
 		await $DeathFrameTimer.timeout
 		get_tree().change_scene_to_packed(death_screen)
@@ -286,11 +284,10 @@ func handle_attack():
 			var coll = bodies[0]
 			coll.hit(attack_damage)
 			gui.get_attack()
-			Audio.play("stab")
 			Freeze.frame_freeze(0.1,0.1)
 			target_health += attack_heal
 			gui.killTimerUpdate()
-			CAMERA.apply_shake()
+		CAMERA.apply_shake()
 	elif Input.is_action_just_pressed("self_attack"):
 		gui.animation_self_attack()
 		await gui.attack_frame
@@ -548,7 +545,6 @@ func handle_pausing():
 
 func hit(damage):
 	gui.get_hit()
-	Audio.play("stab_self")
 	CAMERA.apply_shake()
 	target_health -= damage
 	Freeze.frame_freeze(0.1,0.1)
@@ -579,3 +575,7 @@ func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_inde
 		initialize_corridors(area.global_position)
 		area.queue_free()
 		print("enemy")
+	elif area.name.begins_with("level"):
+		area.queue_free()
+		new_corridor.emit()
+		print("pokoj nowy")
