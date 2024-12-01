@@ -17,3 +17,5 @@ script = ExtResource("1_0ovpw")
 scenes = Array[PackedScene]([ExtResource("2_7506d"), ExtResource("3_r1npc"), ExtResource("4_mpueo"), ExtResource("5_uvxbt"), ExtResource("6_ifeih"), ExtResource("7_h2u3c"), ExtResource("8_qaor6"), ExtResource("9_l6pfr")])
 
 [node name="corridor_start" parent="." instance=ExtResource("3_5tcja")]
+
+[node name="Enemies" type="Node3D" parent="."]
