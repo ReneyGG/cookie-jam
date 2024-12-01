@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bjgbxh5kkyc6b"]
+[gd_scene load_steps=52 format=3 uid="uid://bjgbxh5kkyc6b"]
 
 [ext_resource type="Script" path="res://scenes/levels/procedural_test/procedural_test.gd" id="1_0ovpw"]
 [ext_resource type="PackedScene" uid="uid://chf366nq0jv0s" path="res://scenes/levels/level_structures/corridors/corridor1.tscn" id="2_7506d"]
@@ -18,11 +18,140 @@
 [ext_resource type="PackedScene" uid="uid://blcwlcodx2hip" path="res://scenes/levels/level_structures/corridors/corridor_16.tscn" id="15_gfrrc"]
 [ext_resource type="PackedScene" uid="uid://cwgqv1hh8pwgv" path="res://scenes/levels/level_structures/corridors/corridor_17.tscn" id="16_q34xv"]
 [ext_resource type="PackedScene" uid="uid://btmwrcwunhvuh" path="res://scenes/levels/level_structures/corridors/corridor_room1.tscn" id="17_rl8e0"]
+[ext_resource type="Texture2D" uid="uid://crdpxx8r0qpgk" path="res://assets/Ściana5a.png" id="19_qojme"]
+[ext_resource type="Texture2D" uid="uid://dbi3hds7t6nl4" path="res://assets/podloga3.png" id="20_1h8li"]
+[ext_resource type="Texture2D" uid="uid://dkwud725kmkfx" path="res://assets/credits/CreditsBackground-1.png" id="21_crlft"]
+[ext_resource type="Texture2D" uid="uid://cea8ahya6qxhx" path="res://assets/credits/CreditsBackground-2.png" id="22_n5pty"]
+[ext_resource type="Texture2D" uid="uid://del334rpx1njf" path="res://assets/credits/CreditsBackground-3.png" id="23_djxdg"]
+[ext_resource type="Texture2D" uid="uid://dbvocvbcgh1q0" path="res://assets/credits/CreditsBackground-4.png" id="24_puj5x"]
+[ext_resource type="Texture2D" uid="uid://bnfjwsf70h07o" path="res://assets/credits/CreditsText-1.png" id="25_mxts6"]
+[ext_resource type="Texture2D" uid="uid://cli7cunc0qg6d" path="res://assets/credits/CreditsText-2.png" id="26_d124m"]
+[ext_resource type="Texture2D" uid="uid://bg3w8woc48us4" path="res://assets/credits/CreditsText-3.png" id="27_6ib01"]
+[ext_resource type="Texture2D" uid="uid://d2tjbfinyei7s" path="res://assets/credits/CreditsText-4.png" id="28_8k3qj"]
+[ext_resource type="Texture2D" uid="uid://cwv1bk1aoh2w7" path="res://assets/credits/CreditsText-5.png" id="29_0hcfj"]
+[ext_resource type="Texture2D" uid="uid://c0wawyh0ou23t" path="res://assets/credits/CreditsText-6.png" id="30_dpnkn"]
+[ext_resource type="Texture2D" uid="uid://dxgixyjwbpmpk" path="res://assets/credits/CreditsText-7.png" id="31_ewjww"]
+[ext_resource type="Texture2D" uid="uid://cr2evd5sfg87r" path="res://assets/credits/CreditsText-8.png" id="32_hg04k"]
+[ext_resource type="Texture2D" uid="uid://d0der51hdf0i8" path="res://assets/credits/CreditsText-9.png" id="33_hr0ux"]
+[ext_resource type="Texture2D" uid="uid://bmu4lwtyeyy5l" path="res://assets/credits/CreditsText-10.png" id="34_gt7fj"]
+[ext_resource type="Texture2D" uid="uid://w11nb55nu4kh" path="res://assets/credits/CreditsText-11.png" id="35_4wxlc"]
+[ext_resource type="Texture2D" uid="uid://jyptd61owrt5" path="res://assets/credits/CreditsText-12.png" id="36_nrw4u"]
+[ext_resource type="Texture2D" uid="uid://cm0hi46uge6fc" path="res://assets/credits/CreditsText-13.png" id="37_agtfc"]
+[ext_resource type="Texture2D" uid="uid://boilkltdbxgau" path="res://assets/credits/CreditsText-14.png" id="38_hgcqp"]
+[ext_resource type="Texture2D" uid="uid://brgeswpiskw2h" path="res://assets/credits/CreditsText-15.png" id="39_5u6m2"]
+[ext_resource type="Texture2D" uid="uid://j3y8aeenyabi" path="res://assets/credits/CreditsText-16.png" id="40_ctbsg"]
+[ext_resource type="Texture2D" uid="uid://uqk1hnxhor5n" path="res://assets/credits/CreditsText-17.png" id="41_tb06l"]
+[ext_resource type="Texture2D" uid="uid://dboqpqcaaxhic" path="res://assets/credits/CreditsText-18.png" id="42_1swwh"]
+[ext_resource type="Texture2D" uid="uid://da5kcc4nst37k" path="res://assets/credits/CreditsText-19.png" id="43_p8tdb"]
+[ext_resource type="Texture2D" uid="uid://y6t1ctd72fym" path="res://assets/credits/CreditsText-20.png" id="44_875pp"]
+[ext_resource type="Script" path="res://scenes/levels/procedural_test/world_environment.gd" id="45_vpmnu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wlhp"]
+albedo_texture = ExtResource("19_qojme")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvh1j"]
+albedo_texture = ExtResource("20_1h8li")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbvf8"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j1ukk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_crlft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n5pty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_djxdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_puj5x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hb4fb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_mxts6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_d124m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_6ib01")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8k3qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_0hcfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_dpnkn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_ewjww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_hg04k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_hr0ux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_gt7fj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_4wxlc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_nrw4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_agtfc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_hgcqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_5u6m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ctbsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_tb06l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_1swwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_p8tdb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_875pp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Environment" id="Environment_42dmi"]
 ambient_light_source = 2
-ambient_light_color = Color(0.714081, 0.00211737, 0.907365, 1)
-ambient_light_energy = 8.45
+ambient_light_color = Color(1, 1, 1, 1)
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.631584, 1, 0.352212, 1)
+fog_density = 1.0
+fog_depth_begin = 0.0
+fog_depth_end = 7.0
 
 [node name="procedural_test" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
@@ -31,10 +160,46 @@ scenes = Array[PackedScene]([ExtResource("2_7506d"), ExtResource("3_r1npc"), Ext
 
 [node name="corridor_start" parent="." instance=ExtResource("3_5tcja")]
 
+[node name="start" parent="corridor_start" index="0"]
+visible = false
+
+[node name="wall4" parent="corridor_start/corridor_start" index="0"]
+material_override = SubResource("StandardMaterial3D_6wlhp")
+
+[node name="wall3" parent="corridor_start/corridor_start" index="1"]
+material_override = SubResource("StandardMaterial3D_lvh1j")
+
+[node name="floor" parent="corridor_start/corridor_start" index="2"]
+material_override = SubResource("StandardMaterial3D_lvh1j")
+
+[node name="wall1" parent="corridor_start/corridor_start" index="3"]
+material_override = SubResource("StandardMaterial3D_6wlhp")
+
+[node name="wall5" parent="corridor_start/corridor_start" index="4"]
+transform = Transform3D(1, -4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, 4.37114e-08, 1, -4.37114e-08, 0, 0.5, -0.5)
+material_override = SubResource("StandardMaterial3D_xbvf8")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="corridor_start/corridor_start" index="5"]
+transform = Transform3D(-0.0676, 0, 1.19209e-07, 0, 0.068, 0, -8.05854e-09, 0, -1, 0, 0.5, -0.49)
+sprite_frames = SubResource("SpriteFrames_j1ukk")
+autoplay = "default"
+frame_progress = 0.951341
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="corridor_start/corridor_start" index="6"]
+transform = Transform3D(0.0676, 0, -2.06632e-07, 0, 0.068, 0, 1.39683e-08, 0, 1, 0, 0.5, -0.49)
+sprite_frames = SubResource("SpriteFrames_hb4fb")
+autoplay = "default"
+frame_progress = 0.683294
+metadata/_edit_group_ = true
+
+[node name="Character" parent="corridor_start" index="2"]
+visible = false
+
 [node name="Enemies" type="Node3D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_42dmi")
+script = ExtResource("45_vpmnu")
 
 [connection signal="new_corridor" from="corridor_start/Character" to="." method="_on_character_new_corridor"]
 
