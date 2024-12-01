@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwwwd4oyjrew2"]
+[gd_scene load_steps=14 format=3 uid="uid://cwwwd4oyjrew2"]
 
 [ext_resource type="Texture2D" uid="uid://354jnv5q5o6u" path="res://assets/Grid-Level2.png" id="1_817wh"]
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_kmf7t"]
 [ext_resource type="Texture2D" uid="uid://c77dx60e445ie" path="res://assets/Ściana1a.png" id="2_000yk"]
+[ext_resource type="PackedScene" uid="uid://dspjtac0xgeob" path="res://scenes/levels/level_structures/level_end.tscn" id="2_7vymy"]
 [ext_resource type="Texture2D" uid="uid://cfxe2cjx31mvv" path="res://assets/Ściana4a.png" id="3_ikn14"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8xiv"]
@@ -32,6 +33,9 @@ albedo_texture = ExtResource("1_817wh")
 [node name="corridor_down" type="Node3D"]
 script = ExtResource("1_kmf7t")
 length = 4
+
+[node name="level_end" parent="." instance=ExtResource("2_7vymy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 5)
 
 [node name="start" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23517e-08, 0, 0)

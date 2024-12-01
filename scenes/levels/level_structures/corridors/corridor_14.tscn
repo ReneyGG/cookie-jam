@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bch8bql4fdid5"]
+[gd_scene load_steps=11 format=3 uid="uid://bch8bql4fdid5"]
 
 [ext_resource type="Texture2D" uid="uid://crr65oa44f8p7" path="res://assets/podloga1.png" id="1_fs7mq"]
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_sapux"]
+[ext_resource type="PackedScene" uid="uid://onkit5wxjuih" path="res://scenes/levels/level_structures/enemy.tscn" id="2_55ln2"]
 [ext_resource type="Texture2D" uid="uid://dgoarmo16o3pb" path="res://assets/Ściana3a.png" id="2_syb8p"]
+[ext_resource type="PackedScene" uid="uid://dspjtac0xgeob" path="res://scenes/levels/level_structures/level_end.tscn" id="5_hfgc6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uh7xs"]
 albedo_texture = ExtResource("1_fs7mq")
@@ -23,6 +25,9 @@ albedo_texture = ExtResource("2_syb8p")
 transform = Transform3D(-1, 0, 0, 0, 1, -8.74228e-08, 0, 8.74228e-08, 1, 0, 0, 0)
 script = ExtResource("1_sapux")
 length = 5
+
+[node name="enemy" parent="." instance=ExtResource("2_55ln2")]
+transform = Transform3D(-1, 0, 0, 0, 1, 8.74228e-08, 0, -8.74228e-08, 1, 3, 0.05154, 2.5)
 
 [node name="corridor1" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0.5)
@@ -606,7 +611,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255127, 0)
 shape = SubResource("BoxShape3D_lp1ho")
 
 [node name="wall14" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 4.1, 0.5, 2)
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 4, 0.5, 2)
 material_override = SubResource("StandardMaterial3D_k3u1v")
 mesh = SubResource("PlaneMesh_5ppwc")
 skeleton = NodePath("")
@@ -621,6 +626,8 @@ shape = SubResource("BoxShape3D_lp1ho")
 
 [node name="end" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 6)
+
+[node name="level_end" parent="end" instance=ExtResource("5_hfgc6")]
 
 [node name="wall15" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1, 1, 4.5)
@@ -722,3 +729,12 @@ mesh = SubResource("PlaneMesh_5ppwc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="wall23/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255127, 0)
 shape = SubResource("BoxShape3D_lp1ho")
+
+[node name="enemy2" parent="." instance=ExtResource("2_55ln2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.0515404, 4.5)
+
+[node name="enemy3" parent="." instance=ExtResource("2_55ln2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.0515402, 2.4)
+
+[node name="enemy4" parent="." instance=ExtResource("2_55ln2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.0515404, 4.5)

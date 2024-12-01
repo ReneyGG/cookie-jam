@@ -65,6 +65,7 @@ func _physics_process(delta):
 	
 	if raycast.is_colliding() and animation.current_animation == "walk":
 		var ind = [1,2].pick_random()
+		print("atakuj")
 		animation.play("attack_"+str(ind))
 	
 	if not animation.is_playing():

@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8v1in2qd878t"]
+[gd_scene load_steps=11 format=3 uid="uid://b8v1in2qd878t"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_ovaeb"]
 [ext_resource type="Texture2D" uid="uid://crr65oa44f8p7" path="res://assets/podloga1.png" id="2_2jwl0"]
 [ext_resource type="Texture2D" uid="uid://dgoarmo16o3pb" path="res://assets/Ściana3a.png" id="3_3wumu"]
+[ext_resource type="PackedScene" uid="uid://onkit5wxjuih" path="res://scenes/levels/level_structures/enemy.tscn" id="4_2r3ra"]
+[ext_resource type="PackedScene" uid="uid://dspjtac0xgeob" path="res://scenes/levels/level_structures/level_end.tscn" id="5_suiwf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ptlx2"]
 albedo_texture = ExtResource("2_2jwl0")
@@ -22,6 +24,15 @@ albedo_texture = ExtResource("3_3wumu")
 [node name="corridor2" type="Node3D"]
 script = ExtResource("1_ovaeb")
 length = 6
+
+[node name="enemy4" parent="." instance=ExtResource("4_2r3ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05154, 3.6)
+
+[node name="enemy2" parent="." instance=ExtResource("4_2r3ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.975505, 0.211967, 2.439)
+
+[node name="enemy" parent="." instance=ExtResource("4_2r3ra")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01225, 0.105983, 2.4195)
 
 [node name="corridor1" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
@@ -473,3 +484,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 
 [node name="enemy3" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 3.5)
+
+[node name="level_end" parent="." instance=ExtResource("5_suiwf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
