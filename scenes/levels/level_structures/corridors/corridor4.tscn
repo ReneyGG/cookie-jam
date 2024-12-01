@@ -1,13 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://2nc130k0pqgb"]
+[gd_scene load_steps=10 format=3 uid="uid://2nc130k0pqgb"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_iat0p"]
 [ext_resource type="Texture2D" uid="uid://354jnv5q5o6u" path="res://assets/Grid-Level2.png" id="1_n4apx"]
+[ext_resource type="Texture2D" uid="uid://crdpxx8r0qpgk" path="res://assets/Ściana5a.png" id="3_rky72"]
+[ext_resource type="Texture2D" uid="uid://brjnp85061yib" path="res://assets/podloga2.png" id="4_vwhoq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jhybm"]
 albedo_texture = ExtResource("1_n4apx")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xjsx"]
-albedo_texture = ExtResource("1_n4apx")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sj1vm"]
+albedo_texture = ExtResource("3_rky72")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aqwxx"]
 size = Vector2(1, 1)
@@ -16,10 +18,7 @@ size = Vector2(1, 1)
 size = Vector3(1, 0.0578613, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fm2d"]
-albedo_texture = ExtResource("1_n4apx")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aemew"]
-albedo_texture = ExtResource("1_n4apx")
+albedo_texture = ExtResource("4_vwhoq")
 
 [node name="corridor4" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -33,7 +32,7 @@ material_override = SubResource("StandardMaterial3D_jhybm")
 
 [node name="wall4" type="MeshInstance3D" parent="corridor5"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="corridor5/wall4"]
@@ -67,7 +66,7 @@ shape = SubResource("BoxShape3D_7nt74")
 
 [node name="wall1" type="MeshInstance3D" parent="corridor5"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_aemew")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../corridor5")
 
@@ -83,7 +82,7 @@ material_override = SubResource("StandardMaterial3D_jhybm")
 
 [node name="wall4" type="MeshInstance3D" parent="corridor6"]
 transform = Transform3D(-5.73206e-15, -1.31134e-07, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, 1.31134e-07, 0, 0.5, 0.5)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../corridor1")
 
@@ -118,7 +117,7 @@ shape = SubResource("BoxShape3D_7nt74")
 
 [node name="wall1" type="MeshInstance3D" parent="corridor6"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_aemew")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../corridor5")
 
@@ -134,7 +133,7 @@ material_override = SubResource("StandardMaterial3D_jhybm")
 
 [node name="wall4" type="MeshInstance3D" parent="corridor1"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../..")
 
@@ -168,7 +167,7 @@ shape = SubResource("BoxShape3D_7nt74")
 
 [node name="wall5" type="MeshInstance3D" parent="corridor1"]
 transform = Transform3D(1.91068e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, 0.5, -0.5)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../..")
 
@@ -185,7 +184,7 @@ material_override = SubResource("StandardMaterial3D_jhybm")
 
 [node name="wall4" type="MeshInstance3D" parent="corridor2"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../..")
 
@@ -219,7 +218,7 @@ shape = SubResource("BoxShape3D_7nt74")
 
 [node name="wall1" type="MeshInstance3D" parent="corridor2"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_aemew")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="corridor2/wall1"]
@@ -240,7 +239,7 @@ material_override = SubResource("StandardMaterial3D_jhybm")
 
 [node name="wall4" type="MeshInstance3D" parent="corridor7"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../..")
 
@@ -274,7 +273,7 @@ shape = SubResource("BoxShape3D_7nt74")
 
 [node name="wall5" type="MeshInstance3D" parent="corridor7"]
 transform = Transform3D(-4.37114e-08, -1, 2.13163e-14, 1, -4.37114e-08, 0, -1.69407e-21, 2.13163e-14, 1, 0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../..")
 
@@ -291,7 +290,7 @@ material_override = SubResource("StandardMaterial3D_jhybm")
 
 [node name="wall4" type="MeshInstance3D" parent="corridor8"]
 transform = Transform3D(4.37114e-08, 1, -8.74228e-08, 1, -4.37114e-08, 0, -3.82137e-15, -8.74228e-08, -1, -0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_4xjsx")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../corridor1")
 
@@ -326,7 +325,7 @@ shape = SubResource("BoxShape3D_7nt74")
 
 [node name="wall1" type="MeshInstance3D" parent="corridor8"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.5, 0.5, 0)
-material_override = SubResource("StandardMaterial3D_aemew")
+material_override = SubResource("StandardMaterial3D_sj1vm")
 mesh = SubResource("PlaneMesh_aqwxx")
 skeleton = NodePath("../../corridor5")
 
