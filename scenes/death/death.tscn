@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cw4uvmids3wr0"]
+[gd_scene load_steps=18 format=3 uid="uid://cw4uvmids3wr0"]
 
 [ext_resource type="Script" path="res://scenes/death/death.gd" id="1_dw4gh"]
 [ext_resource type="Texture2D" uid="uid://b84hq63xkaw2b" path="res://assets/death_screens/kaltka0000.png" id="1_hxd5a"]
 [ext_resource type="Texture2D" uid="uid://dbm6hey1rntqs" path="res://assets/death_screens/kaltka0001.png" id="2_1kjh8"]
+[ext_resource type="FontFile" uid="uid://dfu7jrrm5oqfg" path="res://Blue Screen Personal Use.ttf" id="2_y5exn"]
+[ext_resource type="Script" path="res://scenes/gui/button.gd" id="3_2a5d5"]
 [ext_resource type="Texture2D" uid="uid://cxtqwpv1fap3t" path="res://assets/death_screens/kaltka0002.png" id="3_vnb0j"]
 [ext_resource type="Texture2D" uid="uid://dlqi2cp4buo42" path="res://assets/death_screens/kaltka0003.png" id="4_vack7"]
 [ext_resource type="Texture2D" uid="uid://svwh51ekfoap" path="res://assets/death_screens/kaltka0004.png" id="5_8y884"]
@@ -108,7 +110,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
@@ -117,48 +118,113 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -202.0
-offset_top = -432.0
-offset_right = -115.0
-offset_bottom = -409.0
+offset_left = -468.0
+offset_top = -405.5
+offset_right = -282.0
+offset_bottom = -316.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-text = "Game Over"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_y5exn")
+theme_override_font_sizes/font_size = 66
+text = "KILLS:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="RetryButton" type="Button" parent="Control"]
+[node name="Label2" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = -117.0
-offset_right = -81.0
-offset_bottom = -86.0
+offset_left = 36.0
+offset_top = -401.0
+offset_right = 224.0
+offset_bottom = -310.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-text = "Retry"
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 66
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="MenuButton" type="Button" parent="Control"]
+[node name="RetryButton" type="TextureButton" parent="Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = 77.0
-offset_right = -81.0
-offset_bottom = 108.0
+offset_left = -176.0
+offset_top = 150.0
+offset_right = -86.0
+offset_bottom = 181.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-text = "Menu"
+mouse_default_cursor_shape = 2
+script = ExtResource("3_2a5d5")
+
+[node name="Label" type="Label" parent="Control/RetryButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -14.5
+offset_right = 45.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_y5exn")
+theme_override_font_sizes/font_size = 22
+text = "STAND UP"
+
+[node name="MenuButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 321.0
+offset_right = -74.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+mouse_default_cursor_shape = 2
+script = ExtResource("3_2a5d5")
+
+[node name="Label" type="Label" parent="Control/MenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.5
+offset_top = -14.5
+offset_right = 30.5
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_y5exn")
+theme_override_font_sizes/font_size = 22
+text = "LEAVE"
 
 [node name="Screens" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(960, 540)
 sprite_frames = SubResource("SpriteFrames_wd1vu")
 
@@ -167,5 +233,7 @@ libraries = {
 "": SubResource("AnimationLibrary_o3m7h")
 }
 
+[connection signal="mouse_entered" from="Control/RetryButton" to="Control/RetryButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="mouse_entered" from="Control/MenuButton" to="Control/MenuButton" method="_on_mouse_entered"]
 [connection signal="pressed" from="Control/MenuButton" to="." method="_on_menu_button_pressed"]

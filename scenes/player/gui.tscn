@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bv0apbjda28cv"]
+[gd_scene load_steps=50 format=3 uid="uid://bv0apbjda28cv"]
 
 [ext_resource type="Script" path="res://scenes/player/gui.gd" id="1_gy8ea"]
 [ext_resource type="Shader" path="res://scenes/player/perspective.gdshader" id="2_gmlob"]
@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://dd3i51bq6pq21" path="res://assets/player/Stab-4.png" id="6_7py8v"]
 [ext_resource type="FontFile" uid="uid://dfu7jrrm5oqfg" path="res://Blue Screen Personal Use.ttf" id="7_uae2l"]
 [ext_resource type="Texture2D" uid="uid://d0023d5ivruoi" path="res://assets/player/SelfStab-1.png" id="8_1i7da"]
-[ext_resource type="Texture2D" uid="uid://dql5ys8ptbf73" path="res://assets/player/StabIdle-1.png" id="8_gln6h"]
-[ext_resource type="Texture2D" uid="uid://byvkuvijgcytn" path="res://assets/player/StabIdle-2.png" id="9_l3dpf"]
+[ext_resource type="Texture2D" uid="uid://beei33lqfum63" path="res://assets/player/StabIdle-1.png" id="8_gln6h"]
+[ext_resource type="Texture2D" uid="uid://bc6720tevi206" path="res://assets/player/StabIdle-2.png" id="9_l3dpf"]
 [ext_resource type="Texture2D" uid="uid://c06f7wa257mes" path="res://assets/player/SelfStab-2.png" id="9_o1q21"]
 [ext_resource type="Texture2D" uid="uid://dfbvrro36hhst" path="res://assets/player/SelfStab-3.png" id="10_16ygi"]
-[ext_resource type="Texture2D" uid="uid://cnxlri30m7fga" path="res://assets/player/StabIdle-3.png" id="10_urim4"]
-[ext_resource type="Texture2D" uid="uid://b1jfxjwjgjdwr" path="res://assets/player/StabIdle-4.png" id="11_bqr1c"]
+[ext_resource type="Texture2D" uid="uid://bs4ocaubm503e" path="res://assets/player/StabIdle-3.png" id="10_urim4"]
+[ext_resource type="Texture2D" uid="uid://gsss32qshw4y" path="res://assets/player/StabIdle-4.png" id="11_bqr1c"]
 [ext_resource type="Texture2D" uid="uid://dxv2nf0cajmhj" path="res://assets/player/SelfStab-4.png" id="11_l1nfr"]
 [ext_resource type="Texture2D" uid="uid://jdpf0tx0khx3" path="res://assets/player/SelfStab-5.png" id="12_2wdac"]
 [ext_resource type="Texture2D" uid="uid://ce1ydtkkqyk0d" path="res://assets/player/SelfStab-6.png" id="13_kk4c3"]
@@ -27,11 +27,12 @@
 [ext_resource type="Texture2D" uid="uid://dnsusy5f8rovq" path="res://assets/player/SelfStab-10.png" id="17_a3eli"]
 [ext_resource type="Texture2D" uid="uid://pvcmt0sy4vse" path="res://assets/player/SelfStab-11.png" id="18_uqb4c"]
 [ext_resource type="Texture2D" uid="uid://bgpo2t2ebrnc1" path="res://assets/player/SelfStab-12.png" id="19_57vv1"]
-[ext_resource type="Texture2D" uid="uid://l7jc4gekk4uc" path="res://assets/player/Splash-1.png" id="24_fee8s"]
-[ext_resource type="Texture2D" uid="uid://dvnv26pnc87oq" path="res://assets/player/Splash-2.png" id="25_kmptm"]
-[ext_resource type="Texture2D" uid="uid://bgjm5w0q78dv6" path="res://assets/player/Splash-3.png" id="26_w2chc"]
-[ext_resource type="Texture2D" uid="uid://bu2b480ovuc3d" path="res://assets/player/Splash-4.png" id="27_eys6a"]
+[ext_resource type="Texture2D" uid="uid://34a5ej18v6lv" path="res://assets/player/Splash-1.png" id="24_fee8s"]
+[ext_resource type="Texture2D" uid="uid://bmxo5lgxg8dgq" path="res://assets/player/Splash-2.png" id="25_kmptm"]
+[ext_resource type="Texture2D" uid="uid://ct30fp2gjr1o5" path="res://assets/player/Splash-3.png" id="26_w2chc"]
+[ext_resource type="Texture2D" uid="uid://n8cskqjyl28o" path="res://assets/player/Splash-4.png" id="27_eys6a"]
 [ext_resource type="Shader" path="res://scenes/player/crt.gdshader" id="32_v25ce"]
+[ext_resource type="PackedScene" uid="uid://kdkiolchqwpv" path="res://scenes/gui/pause_menu.tscn" id="33_k84sk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3yg4"]
 shader = ExtResource("2_gmlob")
@@ -586,6 +587,8 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_8mmeg")
 }
+
+[node name="pause_menu" parent="." instance=ExtResource("33_k84sk")]
 
 [connection signal="timeout" from="adrenaline_bar/adrenaline_timer" to="." method="_on_adrenaline_timer_timeout"]
 [connection signal="timeout" from="combo_meter/combo_timer" to="." method="_on_combo_timer_timeout"]

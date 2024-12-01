@@ -33,6 +33,8 @@ func _ready():
 	$Music.play()
 	$Noise.play()
 	$Bg.play("mirror")
+	$btn_start/AnimatedSprite2D.frame = 0
+	$btn_quit/AnimatedSprite2D.frame = 0
 
 func _process(delta):
 	# Sprawdzenie kliknięcia w trakcie wyświetlania tekstu
@@ -61,7 +63,8 @@ func _on_btn_quit_pressed() -> void:
 	get_tree().quit()
 
 func cutscene():
-	$Label.hide()
+	$TaintedLove.hide()
+	$Or.hide()
 	$btn_start.hide()
 	$btn_options.hide()
 	$btn_quit.hide()
@@ -121,3 +124,18 @@ func skip_text_animation():
 
 	# Zwiększ indeks dialogu na następny
 	#current_line_index += 1
+
+
+func _on_btn_start_mouse_entered():
+	$btn_start/AnimatedSprite2D.play()
+
+func _on_btn_quit_mouse_entered():
+	$btn_quit/AnimatedSprite2D.play()
+
+func _on_btn_quit_mouse_exited():
+	$btn_quit/AnimatedSprite2D.stop()
+	$btn_quit/AnimatedSprite2D.frame = 0
+
+func _on_btn_start_mouse_exited():
+	$btn_start/AnimatedSprite2D.stop()
+	$btn_start/AnimatedSprite2D.frame = 0
