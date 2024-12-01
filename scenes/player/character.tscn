@@ -372,7 +372,7 @@ process_mode = 3
 current = true
 fov = 100.0
 script = ExtResource("3_fva2b")
-randomStrength = 0.2
+randomStrength = 0.1
 shakeFade = 10.0
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head"]

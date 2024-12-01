@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://kdkiolchqwpv"]
+[gd_scene load_steps=11 format=3 uid="uid://kdkiolchqwpv"]
 
 [ext_resource type="Script" path="res://scenes/gui/pause_menu.gd" id="1_0yj3a"]
 [ext_resource type="Shader" path="res://scenes/gui/pause_menu.gdshader" id="1_r040f"]
 [ext_resource type="PackedScene" uid="uid://dche3ed1o6sev" path="res://scenes/gui/settings.tscn" id="2_blsc4"]
+[ext_resource type="Texture2D" uid="uid://ctkyuaiiyajsj" path="res://assets/PAUATLO.png" id="3_1t271"]
+[ext_resource type="FontFile" uid="uid://dfu7jrrm5oqfg" path="res://Blue Screen Personal Use.ttf" id="5_mryrp"]
+[ext_resource type="Script" path="res://scenes/gui/button.gd" id="5_p0i0b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_k70u0"]
 shader = ExtResource("1_r040f")
@@ -47,14 +50,26 @@ _data = {
 
 [node name="pause_menu" type="CanvasLayer"]
 process_mode = 3
+layer = 3
 script = ExtResource("1_0yj3a")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_k70u0")
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 1155.0
-offset_bottom = 651.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_1t271")
 
 [node name="settings" parent="." instance=ExtResource("2_blsc4")]
 process_mode = 3
@@ -67,9 +82,11 @@ libraries = {
 
 [node name="menu" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="btn_resume" type="TextureButton" parent="menu"]
 layout_mode = 1
@@ -78,90 +95,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -124.0
-offset_right = 88.0
-offset_bottom = -62.0
+offset_left = -185.5
+offset_top = 96.0
+offset_right = 185.5
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("5_p0i0b")
 
 [node name="Label" type="Label" parent="menu/btn_resume"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -22.5
-offset_right = 63.5
-offset_bottom = 22.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "RESUME"
-
-[node name="btn_restart" type="TextureButton" parent="menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = -49.0
-offset_right = 88.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="menu/btn_restart"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -22.5
-offset_right = 63.5
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "RESTART
-"
-
-[node name="btn_options" type="TextureButton" parent="menu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = 26.0
-offset_right = 88.0
-offset_bottom = 88.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="menu/btn_options"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -22.5
-offset_right = 63.5
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "OPTIONS
-"
+theme_override_fonts/font = ExtResource("5_mryrp")
+theme_override_font_sizes/font_size = 87
+text = "CONTINUE"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="btn_quit" type="TextureButton" parent="menu"]
 layout_mode = 1
@@ -170,34 +124,43 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -88.0
-offset_top = 101.0
-offset_right = 88.0
-offset_bottom = 163.0
+offset_left = -129.5
+offset_top = 251.0
+offset_right = 129.5
+offset_bottom = 313.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
+script = ExtResource("5_p0i0b")
 
 [node name="Label" type="Label" parent="menu/btn_quit"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.5
-offset_top = -22.5
-offset_right = 63.5
-offset_bottom = 22.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "QUIT
-"
+theme_override_fonts/font = ExtResource("5_mryrp")
+theme_override_font_sizes/font_size = 87
+text = "LEAVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.5
+offset_top = 103.0
+offset_right = 142.5
+offset_bottom = 234.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_mryrp")
+theme_override_font_sizes/font_size = 241
+text = "PAUSE"
+
 [connection signal="visibility_changed" from="settings" to="." method="_on_settings_visibility_changed"]
+[connection signal="mouse_entered" from="menu/btn_resume" to="menu/btn_resume" method="_on_mouse_entered"]
 [connection signal="pressed" from="menu/btn_resume" to="." method="_on_btn_resume_pressed"]
-[connection signal="pressed" from="menu/btn_restart" to="." method="_on_btn_restart_pressed"]
-[connection signal="pressed" from="menu/btn_options" to="." method="_on_btn_options_pressed"]
+[connection signal="mouse_entered" from="menu/btn_quit" to="menu/btn_quit" method="_on_mouse_entered"]
 [connection signal="pressed" from="menu/btn_quit" to="." method="_on_btn_quit_pressed"]

@@ -1,16 +1,25 @@
-[gd_scene load_steps=32 format=3 uid="uid://o0t332ocm63l"]
+[gd_scene load_steps=44 format=3 uid="uid://o0t332ocm63l"]
 
 [ext_resource type="Script" path="res://scenes/gui/main_menu.gd" id="1_iwhld"]
 [ext_resource type="AudioStream" uid="uid://dl135fmsdpymu" path="res://music/Jeff-the-killer-menu-BEZ-SZUMU.mp3" id="2_5t5sf"]
 [ext_resource type="Script" path="res://scenes/gui/button.gd" id="2_lrr8a"]
+[ext_resource type="Texture2D" uid="uid://b04nbqv2go11e" path="res://assets/STAB_buttonAnim-1.png" id="3_6oegc"]
 [ext_resource type="AudioStream" uid="uid://c2htlgh4j6jx6" path="res://music/Jeff-the-killer-menu-bez-ŚCIEŻKI.mp3" id="3_dn1pu"]
+[ext_resource type="Texture2D" uid="uid://bk43v8rjqcbed" path="res://assets/STAB_buttonAnim-2.png" id="4_6lew6"]
 [ext_resource type="Texture2D" uid="uid://cxy4q5oj8a08b" path="res://assets/Animacjamenu-1.png" id="4_vaaqh"]
+[ext_resource type="Texture2D" uid="uid://bh5dbjxssq2bt" path="res://assets/STAB_buttonAnim-3.png" id="5_0wikp"]
 [ext_resource type="Texture2D" uid="uid://c48hfmku3c5j6" path="res://assets/Animacjamenu-2.png" id="5_es7np"]
 [ext_resource type="Texture2D" uid="uid://bxfkqvuxjg11v" path="res://assets/Animacjamenu-3.png" id="6_2w0l2"]
+[ext_resource type="Texture2D" uid="uid://c2vsirfibg0b0" path="res://assets/STAB_buttonAnim-4.png" id="6_dfytx"]
+[ext_resource type="Texture2D" uid="uid://b3hdpjt31yucm" path="res://assets/BESTABBED_buttonAnim-1.png" id="7_70hgv"]
+[ext_resource type="Texture2D" uid="uid://b1fcug1ybo1ai" path="res://assets/OR.png" id="7_dxn5h"]
 [ext_resource type="Texture2D" uid="uid://bjb6n3si2dobj" path="res://assets/Animacjamenu-4.png" id="7_xm78o"]
 [ext_resource type="Texture2D" uid="uid://bxmeetxoyufm4" path="res://assets/Animacjamenu-5.png" id="8_j4l2o"]
+[ext_resource type="Texture2D" uid="uid://bdcqvkngtln0d" path="res://assets/BESTABBED_buttonAnim-2.png" id="8_yqurf"]
 [ext_resource type="Texture2D" uid="uid://ccy2m6pu1jopj" path="res://assets/Animacjamenu-6.png" id="9_xdush"]
+[ext_resource type="Texture2D" uid="uid://drwh6dxn82ek4" path="res://assets/BESTABBED_buttonAnim-3.png" id="9_ypbnb"]
 [ext_resource type="Texture2D" uid="uid://c8vutfxpcjim5" path="res://assets/Animacjamenu-7.png" id="10_ic8fd"]
+[ext_resource type="Texture2D" uid="uid://bprt14dqqmc5y" path="res://assets/BESTABBED_buttonAnim-4.png" id="10_rnd6q"]
 [ext_resource type="Texture2D" uid="uid://dsbox1yuy0ktu" path="res://assets/Animacjamenu-8.png" id="11_wpo82"]
 [ext_resource type="Texture2D" uid="uid://c5q65e484aa5x" path="res://assets/Animacjamenu-9.png" id="12_fiff5"]
 [ext_resource type="Texture2D" uid="uid://cq40fceyiqa04" path="res://assets/Animacjamenu-10.png" id="13_svxln"]
@@ -29,6 +38,47 @@
 [ext_resource type="Texture2D" uid="uid://mdqtlxp3iviq" path="res://assets/13.png" id="27_ixlaf"]
 [ext_resource type="FontFile" uid="uid://dfu7jrrm5oqfg" path="res://Blue Screen Personal Use.ttf" id="28_xk5l6"]
 [ext_resource type="AudioStream" uid="uid://dyh6bk3bm141n" path="res://music/pisanie.mp3" id="29_j7rfw"]
+[ext_resource type="Texture2D" uid="uid://f5mnlsnw1ucc" path="res://assets/TAINTED LOVE.png" id="38_8ofr6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yral1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6oegc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6lew6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0wikp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dfytx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c7iop"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_70hgv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_yqurf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ypbnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rnd6q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5d8kt"]
 animations = [{
@@ -134,23 +184,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -897.0
-offset_top = 55.0
-offset_right = -568.0
-offset_bottom = 192.0
-grow_horizontal = 2
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 48
-text = "TITLE
-BOTTOM TEXT"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="btn_start" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -158,35 +191,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -764.0
-offset_top = -620.0
-offset_right = -562.0
-offset_bottom = -580.0
+offset_left = -889.0
+offset_top = -424.0
+offset_right = -728.0
+offset_bottom = -347.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2, 2)
+scale = Vector2(1.2, 1.2)
+mouse_default_cursor_shape = 2
 script = ExtResource("2_lrr8a")
 
-[node name="Label2" type="Label" parent="btn_start"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -30.0
-offset_right = 100.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "START
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="btn_start"]
+position = Vector2(79.5, 40)
+sprite_frames = SubResource("SpriteFrames_yral1")
 
 [node name="btn_options" type="TextureButton" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -220,6 +240,11 @@ text = "OPTIONS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Or" type="Sprite2D" parent="."]
+position = Vector2(105, 819)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("7_dxn5h")
+
 [node name="btn_quit" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -227,33 +252,19 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -763.0
-offset_top = -345.0
-offset_right = -563.0
-offset_bottom = -308.0
+offset_left = -906.0
+offset_top = -218.0
+offset_right = -548.0
+offset_bottom = -123.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(2, 2)
+scale = Vector2(1.2, 1.2)
+mouse_default_cursor_shape = 2
 script = ExtResource("2_lrr8a")
 
-[node name="Label3" type="Label" parent="btn_quit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -30.0
-offset_right = 100.0
-offset_bottom = 30.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-text = "QUIT
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="btn_quit"]
+position = Vector2(194, 55)
+sprite_frames = SubResource("SpriteFrames_c7iop")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_5t5sf")
@@ -291,9 +302,17 @@ autowrap_mode = 2
 [node name="Typing" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("29_j7rfw")
 
+[node name="TaintedLove" type="Sprite2D" parent="."]
+position = Vector2(337, 241)
+texture = ExtResource("38_8ofr6")
+
+[connection signal="mouse_entered" from="btn_start" to="." method="_on_btn_start_mouse_entered"]
 [connection signal="mouse_entered" from="btn_start" to="btn_start" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="btn_start" to="." method="_on_btn_start_mouse_exited"]
 [connection signal="pressed" from="btn_start" to="." method="_on_btn_start_pressed"]
 [connection signal="mouse_entered" from="btn_options" to="btn_options" method="_on_mouse_entered"]
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]
+[connection signal="mouse_entered" from="btn_quit" to="." method="_on_btn_quit_mouse_entered"]
 [connection signal="mouse_entered" from="btn_quit" to="btn_quit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="btn_quit" to="." method="_on_btn_quit_mouse_exited"]
 [connection signal="pressed" from="btn_quit" to="." method="_on_btn_quit_pressed"]
