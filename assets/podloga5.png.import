@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crdpxx8r0qpgk"
-path.s3tc="res://.godot/imported/Ściana5a.png-80ae572107335fd68320c1d2b0f40975.s3tc.ctex"
+uid="uid://ye7lhmgynm3t"
+path.s3tc="res://.godot/imported/podloga5.png-9f68cb99f3f80ec065ee4874f95a26c4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Ściana5a.png"
-dest_files=["res://.godot/imported/Ściana5a.png-80ae572107335fd68320c1d2b0f40975.s3tc.ctex"]
+source_file="res://assets/podloga5.png"
+dest_files=["res://.godot/imported/podloga5.png-9f68cb99f3f80ec065ee4874f95a26c4.s3tc.ctex"]
 
 [params]
 
