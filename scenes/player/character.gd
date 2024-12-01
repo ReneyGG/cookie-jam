@@ -136,7 +136,7 @@ var adrenaline : float
 var target_adrenaline : float
 var adrenaline_mult := 0.01
 var self_hit_adrenaline := 1.5
-var attack_heal := 0.5
+var attack_heal := 0.4
 var dead := false
 
 # These are variables used in this script that don't need to be exposed in the editor.
