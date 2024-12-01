@@ -32,7 +32,6 @@ albedo_texture = ExtResource("1_817wh")
 [node name="corridor_down" type="Node3D"]
 script = ExtResource("1_kmf7t")
 length = 4
-weight = 5
 
 [node name="start" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23517e-08, 0, 0)

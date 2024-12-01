@@ -22,7 +22,6 @@ albedo_texture = ExtResource("3_3wumu")
 [node name="corridor2" type="Node3D"]
 script = ExtResource("1_ovaeb")
 length = 6
-weight = 15
 
 [node name="corridor1" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
@@ -339,10 +338,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255127, 0)
 shape = SubResource("BoxShape3D_4vre4")
 
 [node name="corridor10" type="MultiMeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)
 
 [node name="wall3" type="MeshInstance3D" parent="corridor10"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 1, -3)
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 1, 0)
 material_override = SubResource("StandardMaterial3D_ptlx2")
 mesh = SubResource("PlaneMesh_7etgl")
 skeleton = NodePath("")
@@ -354,7 +353,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255127, 0)
 shape = SubResource("BoxShape3D_4vre4")
 
 [node name="floor" type="MeshInstance3D" parent="corridor10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
 material_override = SubResource("StandardMaterial3D_qb0rv")
 mesh = SubResource("PlaneMesh_7etgl")
 skeleton = NodePath("")
