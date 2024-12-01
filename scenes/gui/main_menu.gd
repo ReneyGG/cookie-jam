@@ -1,6 +1,6 @@
 extends Node
 
-var text1 = "q"
+var text1 = "q..."
 var text2 = "qI wish I was made for loving someone"
 var text3 = "qBut the only person who I can love"
 var text4 = "q...is Me"

@@ -229,14 +229,14 @@ func _physics_process(delta): # Most things happen here.
 
 
 	was_on_floor = is_on_floor() # This must always be at the end of physics_process
-	if health <= 0.1:
+	if health <= 0.1 or adrenaline <= 0.1:
 		dead = true
 		get_tree().paused = true
 		MainTheme.stop()
 		Audio.play("death")
 		CAMERA.apply_shake()
-		$DeathFrameTimer.start(0.1)
-		await $DeathFrameTimer.timeout
+		#$DeathFrameTimer.start(0.1)
+		#await $DeathFrameTimer.timeout
 		get_tree().change_scene_to_packed(death_screen)
 	#if health >= max_health:
 		#print("over-heal")
