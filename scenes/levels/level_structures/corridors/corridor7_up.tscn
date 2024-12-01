@@ -29,7 +29,6 @@ size = Vector3(1, 0.0578613, 1)
 transform = Transform3D(-1, 1.50996e-07, 1.50996e-07, -1.50996e-07, -1, 0, -1.50996e-07, 2.27997e-14, -1, 0, 0, 0)
 script = ExtResource("1_35c6p")
 length = 4
-weight = 5
 
 [node name="corridor01" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, 9.23218e-21, 1, 2.64009e-14, 1.74846e-07, -2.64009e-14, 1, -1.15835e-06, -1, -1)

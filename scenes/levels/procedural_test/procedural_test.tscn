@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjgbxh5kkyc6b"]
+[gd_scene load_steps=16 format=3 uid="uid://bjgbxh5kkyc6b"]
 
 [ext_resource type="Script" path="res://scenes/levels/procedural_test/procedural_test.gd" id="1_0ovpw"]
 [ext_resource type="PackedScene" uid="uid://chf366nq0jv0s" path="res://scenes/levels/level_structures/corridors/corridor1.tscn" id="2_7506d"]
@@ -10,12 +10,24 @@
 [ext_resource type="PackedScene" uid="uid://cwwwd4oyjrew2" path="res://scenes/levels/level_structures/corridors/corridor6_down.tscn" id="7_h2u3c"]
 [ext_resource type="PackedScene" uid="uid://bb04cm0j47rtd" path="res://scenes/levels/level_structures/corridors/corridor7_up.tscn" id="8_qaor6"]
 [ext_resource type="PackedScene" uid="uid://l4q0u3c2a6x" path="res://scenes/levels/level_structures/corridors/corridor_8.tscn" id="9_l6pfr"]
+[ext_resource type="PackedScene" uid="uid://cmk1x1wi30gr6" path="res://scenes/levels/level_structures/corridors/corridor_11.tscn" id="10_wyb42"]
+[ext_resource type="PackedScene" uid="uid://ci127tdpib087" path="res://scenes/levels/level_structures/corridors/corridor_12.tscn" id="11_3ynyf"]
+[ext_resource type="PackedScene" uid="uid://crj8jgqwtqfwl" path="res://scenes/levels/level_structures/corridors/corridor_13.tscn" id="12_q7wld"]
+[ext_resource type="PackedScene" uid="uid://bch8bql4fdid5" path="res://scenes/levels/level_structures/corridors/corridor_14.tscn" id="13_tta03"]
+
+[sub_resource type="Environment" id="Environment_42dmi"]
+ambient_light_source = 2
+ambient_light_color = Color(0.326321, 0.99523, 0, 1)
+ambient_light_energy = 8.45
 
 [node name="procedural_test" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
 script = ExtResource("1_0ovpw")
-scenes = Array[PackedScene]([ExtResource("2_7506d"), ExtResource("3_r1npc"), ExtResource("4_mpueo"), ExtResource("5_uvxbt"), ExtResource("6_ifeih"), ExtResource("7_h2u3c"), ExtResource("8_qaor6"), ExtResource("9_l6pfr")])
+scenes = Array[PackedScene]([ExtResource("2_7506d"), ExtResource("3_r1npc"), ExtResource("4_mpueo"), ExtResource("5_uvxbt"), ExtResource("6_ifeih"), ExtResource("7_h2u3c"), ExtResource("8_qaor6"), ExtResource("9_l6pfr"), ExtResource("10_wyb42"), ExtResource("11_3ynyf"), ExtResource("12_q7wld"), ExtResource("13_tta03")])
 
 [node name="corridor_start" parent="." instance=ExtResource("3_5tcja")]
 
 [node name="Enemies" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_42dmi")
