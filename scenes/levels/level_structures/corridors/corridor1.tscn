@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://chf366nq0jv0s"]
+[gd_scene load_steps=11 format=3 uid="uid://chf366nq0jv0s"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_gjgne"]
 [ext_resource type="Texture2D" uid="uid://354jnv5q5o6u" path="res://assets/Grid-Level2.png" id="1_spp03"]
@@ -19,6 +19,9 @@ size = Vector3(1, 0.0578613, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15w6h"]
 albedo_texture = ExtResource("4_ajiou")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7lai1"]
+size = Vector3(0.2, 0.1, 0.2)
 
 [node name="corridor1" type="Node3D"]
 script = ExtResource("1_gjgne")
@@ -181,8 +184,11 @@ shape = SubResource("BoxShape3D_prdph")
 [node name="end" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
 
-[node name="enemy" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0.9)
+[node name="enemy" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+collision_layer = 4
+collision_mask = 4
 
-[node name="enemy2" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19209e-07, 0, 1.8)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="enemy"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.98023e-08, 0.05, 0)
+shape = SubResource("BoxShape3D_7lai1")

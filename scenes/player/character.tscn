@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=20 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://scenes/player/character.gd" id="1_0t4e8"]
 [ext_resource type="PackedScene" uid="uid://bv0apbjda28cv" path="res://scenes/player/gui.tscn" id="2_x0eqb"]
@@ -318,6 +318,9 @@ _data = {
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_cfxl0"]
+size = Vector3(1, 0.420898, 1)
+
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0)
 collision_layer = 7
@@ -389,4 +392,15 @@ target_position = Vector3(0, 0.5, 0)
 
 [node name="EditorModule" type="Node" parent="."]
 
+[node name="Area3D" type="Area3D" parent="."]
+physics_interpolation_mode = 2
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+physics_interpolation_mode = 2
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+shape = SubResource("BoxShape3D_cfxl0")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
