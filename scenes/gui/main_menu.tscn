@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://o0t332ocm63l"]
+[gd_scene load_steps=32 format=3 uid="uid://o0t332ocm63l"]
 
 [ext_resource type="Script" path="res://scenes/gui/main_menu.gd" id="1_iwhld"]
 [ext_resource type="AudioStream" uid="uid://dl135fmsdpymu" path="res://music/Jeff-the-killer-menu-BEZ-SZUMU.mp3" id="2_5t5sf"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://c1i5555hb7rwa" path="res://assets/12.png" id="26_rtmt4"]
 [ext_resource type="Texture2D" uid="uid://mdqtlxp3iviq" path="res://assets/13.png" id="27_ixlaf"]
 [ext_resource type="FontFile" uid="uid://dfu7jrrm5oqfg" path="res://Blue Screen Personal Use.ttf" id="28_xk5l6"]
+[ext_resource type="AudioStream" uid="uid://b22whhg2xsxsi" path="res://music/pisanie.mp3" id="29_j7rfw"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5d8kt"]
 animations = [{
@@ -92,10 +93,10 @@ animations = [{
 "texture": ExtResource("21_tnos2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_72ajo")
+"texture": ExtResource("23_qb2gd")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_qb2gd")
+"texture": ExtResource("22_72ajo")
 }, {
 "duration": 1.0,
 "texture": ExtResource("24_ye4j1")
@@ -286,6 +287,9 @@ theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="Typing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("29_j7rfw")
 
 [connection signal="mouse_entered" from="btn_start" to="btn_start" method="_on_mouse_entered"]
 [connection signal="pressed" from="btn_start" to="." method="_on_btn_start_pressed"]
