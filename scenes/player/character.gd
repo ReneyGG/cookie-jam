@@ -124,7 +124,9 @@ var is_timer_on := false
 #region Member Variable Initialization
 
 @onready var gui: Control = $CanvasLayer/Control/GUI
-@onready var raycast = $Head/RayCast3D
+#@onready var raycast = $Head/RayCast3D
+@onready var hitbox = $Head/Hitbox
+@onready var death_screen = preload("res://scenes/death/death.tscn")
 var attack_damage := 1.0
 var max_health := 5.0
 var health : float
@@ -135,6 +137,7 @@ var target_adrenaline : float
 var adrenaline_mult := 0.01
 var self_hit_adrenaline := 1.5
 var attack_heal := 1.0
+var dead := false
 
 # These are variables used in this script that don't need to be exposed in the editor.
 var speed : float = base_speed
@@ -188,6 +191,8 @@ func _process(_delta):
 
 
 func _physics_process(delta): # Most things happen here.
+	if dead:
+		return
 	# Gravity
 	speed = 6 + adrenaline
 	
@@ -224,9 +229,13 @@ func _physics_process(delta): # Most things happen here.
 
 
 	was_on_floor = is_on_floor() # This must always be at the end of physics_process
-	
-	#if health <= 0:
-		#print("dead")
+	if health <= 0.1:
+		dead = true
+		get_tree().paused = true
+		CAMERA.apply_shake()
+		$DeathFrameTimer.start(0.1)
+		await $DeathFrameTimer.timeout
+		get_tree().change_scene_to_packed(death_screen)
 	#if health >= max_health:
 		#print("over-heal")
 	#if adrenaline <= 0:
@@ -267,19 +276,25 @@ func handle_jumping():
 func handle_attack():
 	if Input.is_action_just_pressed("attack"):
 		gui.animation_attack()
-		if raycast.is_colliding():
-			var coll = raycast.get_collider()
+		await gui.attack_frame
+		#if raycast.is_colliding():
+		var bodies = hitbox.get_overlapping_bodies()
+		if bodies.size() != 0:
+			#var coll = raycast.get_collider()
+			var coll = bodies[0]
 			coll.hit(attack_damage)
+			gui.get_attack()
+			Freeze.frame_freeze(0.1,0.1)
 			target_health += attack_heal
 			gui.killTimerUpdate()
 		CAMERA.apply_shake()
 	elif Input.is_action_just_pressed("self_attack"):
 		gui.animation_self_attack()
+		await gui.attack_frame
 		target_adrenaline += self_hit_adrenaline
 		hit(attack_damage)
 		$Timer.start()
 		is_timer_on = true
-		print("timer start")
 
 func handle_movement(delta, input_dir):
 	var direction = input_dir.rotated(-HEAD.rotation.y)
@@ -509,10 +524,11 @@ func change_reticle(reticle): # Yup, this function is kinda strange
 
 
 func update_camera_fov():
-	if state == "sprinting":
-		CAMERA.fov = lerp(CAMERA.fov, 85.0, 0.3)
-	else:
-		CAMERA.fov = lerp(CAMERA.fov, 75.0, 0.3)
+	pass
+	#if state == "sprinting":
+		#CAMERA.fov = lerp(CAMERA.fov, 85.0, 0.3)
+	#else:
+		#CAMERA.fov = lerp(CAMERA.fov, 75.0, 0.3)
 
 func handle_pausing():
 	if Input.is_action_just_pressed(controls.PAUSE):
@@ -528,8 +544,10 @@ func handle_pausing():
 #endregion
 
 func hit(damage):
+	gui.get_hit()
 	CAMERA.apply_shake()
 	target_health -= damage
+	Freeze.frame_freeze(0.1,0.1)
 
 
 func _on_timer_timeout() -> void:

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ditu46wyw4171"]
+
+[ext_resource type="Script" path="res://scenes/freeze/freeze.gd" id="1_mssxn"]
+
+[node name="Freeze" type="Timer"]
+one_shot = true
+script = ExtResource("1_mssxn")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
