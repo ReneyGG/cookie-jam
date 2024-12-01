@@ -11,7 +11,7 @@ extends CharacterBody3D
 ## The settings for the character's movement and feel.
 @export_category("Character")
 ## The speed that the character moves at without crouching or sprinting.
-@export var base_speed : float = 3.0
+@export var base_speed : float = 2.0
 ## The speed that the character moves at when sprinting.
 @export var sprint_speed : float = 6.0
 ## The speed that the character moves at when crouching.
@@ -136,7 +136,7 @@ var adrenaline : float
 var target_adrenaline : float
 var adrenaline_mult := 0.01
 var self_hit_adrenaline := 1.5
-var attack_heal := 1.0
+var attack_heal := 0.5
 var dead := false
 
 # These are variables used in this script that don't need to be exposed in the editor.
@@ -194,7 +194,7 @@ func _physics_process(delta): # Most things happen here.
 	if dead:
 		return
 	# Gravity
-	speed = 6 + adrenaline
+	speed = 2 + adrenaline / 2
 	
 	if dynamic_gravity:
 		gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -292,7 +292,9 @@ func handle_attack():
 		gui.animation_self_attack()
 		await gui.attack_frame
 		target_adrenaline += self_hit_adrenaline
+		print(target_health)
 		hit(attack_damage)
+		print(target_health)
 		$Timer.start()
 		is_timer_on = true
 

@@ -338,8 +338,11 @@ COLLISION_MESH = NodePath("Collision")
 in_air_momentum = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.25
 one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.92
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
