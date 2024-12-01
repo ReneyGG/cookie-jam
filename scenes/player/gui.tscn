@@ -546,6 +546,12 @@ animation = &"attack"
 [node name="Left" type="AnimatedSprite2D" parent="hand"]
 sprite_frames = SubResource("SpriteFrames_uabqu")
 
+[node name="self_attack_timer" type="Timer" parent="hand"]
+wait_time = 0.8
+
+[node name="attack_timer" type="Timer" parent="hand"]
+wait_time = 0.3
+
 [node name="Splash" type="AnimatedSprite2D" parent="."]
 position = Vector2(960, 539)
 sprite_frames = SubResource("SpriteFrames_ddhbo")
@@ -592,3 +598,5 @@ libraries = {
 
 [connection signal="timeout" from="adrenaline_bar/adrenaline_timer" to="." method="_on_adrenaline_timer_timeout"]
 [connection signal="timeout" from="combo_meter/combo_timer" to="." method="_on_combo_timer_timeout"]
+[connection signal="timeout" from="hand/self_attack_timer" to="." method="_on_self_attack_timer_timeout"]
+[connection signal="timeout" from="hand/attack_timer" to="." method="_on_attack_timer_timeout"]

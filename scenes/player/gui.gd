@@ -8,10 +8,14 @@ signal attack_frame
 
 var comboCounter = 0
 var mouseInput
+var can_attack
+var can_self_attack
 
 func _ready():
 	$FlashPos.color = Color(0.0, 0.0, 0.0, 0.0)
 	$Splash.frame = 0
+	can_attack = true
+	can_self_attack = true
 
 func _physics_process(_delta):
 	if mouseInput:
@@ -49,10 +53,22 @@ func killTimerUpdate() -> void:
 	$combo_meter/combo_timer.start()
 
 func animation_attack():
-	animation.play("attack")
+	if (can_attack == true) and (can_self_attack == true):
+		animation.play("attack")
+		$hand/attack_timer.start()
+		can_attack = false
 
-func animation_self_attack():
-	animation.play("self_attack")
+func animation_self_attack():	
+	if (can_attack == true) and (can_self_attack == true):
+		animation.play("self_attack")
+		$hand/self_attack_timer.start()
+		can_self_attack = false
 
 func emit_attack_frame():
 	emit_signal("attack_frame")
+
+func _on_attack_timer_timeout() -> void:
+	can_attack = true
+
+func _on_self_attack_timer_timeout() -> void:
+	can_self_attack = true

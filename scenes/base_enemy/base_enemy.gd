@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 @export var max_health := 2
-@export var move_speed := 2
+@export var move_speed := 1.5
 @export var attack_damage := 1
 @export var anim_player : Node
 @export var player : Node
@@ -65,7 +65,6 @@ func _physics_process(delta):
 	
 	if raycast.is_colliding() and animation.current_animation == "walk":
 		var ind = [1,2].pick_random()
-		print("atakuj")
 		animation.play("attack_"+str(ind))
 	
 	if not animation.is_playing():
