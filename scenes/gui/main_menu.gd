@@ -3,6 +3,7 @@ extends Node
 func _ready():
 	$Music.play()
 	$Noise.play()
+	$AnimatedSprite2D.play("mirror")
 
 func _on_btn_start_pressed() -> void:
 	print("dziala")

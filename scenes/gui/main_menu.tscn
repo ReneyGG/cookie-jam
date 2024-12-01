@@ -1,8 +1,56 @@
-[gd_scene load_steps=4 format=3 uid="uid://o0t332ocm63l"]
+[gd_scene load_steps=15 format=3 uid="uid://o0t332ocm63l"]
 
 [ext_resource type="Script" path="res://scenes/gui/main_menu.gd" id="1_iwhld"]
-[ext_resource type="AudioStream" uid="uid://dnldvd0nj3b47" path="res://music/Jeff-the-killer-menu-BEZ-SZUMU.mp3" id="2_5t5sf"]
+[ext_resource type="AudioStream" uid="uid://dl135fmsdpymu" path="res://music/Jeff-the-killer-menu-BEZ-SZUMU.mp3" id="2_5t5sf"]
 [ext_resource type="AudioStream" uid="uid://c2htlgh4j6jx6" path="res://music/Jeff-the-killer-menu-bez-ŚCIEŻKI.mp3" id="3_dn1pu"]
+[ext_resource type="Texture2D" uid="uid://cxy4q5oj8a08b" path="res://assets/Animacjamenu-1.png" id="4_vaaqh"]
+[ext_resource type="Texture2D" uid="uid://c48hfmku3c5j6" path="res://assets/Animacjamenu-2.png" id="5_es7np"]
+[ext_resource type="Texture2D" uid="uid://bxfkqvuxjg11v" path="res://assets/Animacjamenu-3.png" id="6_2w0l2"]
+[ext_resource type="Texture2D" uid="uid://bjb6n3si2dobj" path="res://assets/Animacjamenu-4.png" id="7_xm78o"]
+[ext_resource type="Texture2D" uid="uid://bxmeetxoyufm4" path="res://assets/Animacjamenu-5.png" id="8_j4l2o"]
+[ext_resource type="Texture2D" uid="uid://ccy2m6pu1jopj" path="res://assets/Animacjamenu-6.png" id="9_xdush"]
+[ext_resource type="Texture2D" uid="uid://c8vutfxpcjim5" path="res://assets/Animacjamenu-7.png" id="10_ic8fd"]
+[ext_resource type="Texture2D" uid="uid://dsbox1yuy0ktu" path="res://assets/Animacjamenu-8.png" id="11_wpo82"]
+[ext_resource type="Texture2D" uid="uid://c5q65e484aa5x" path="res://assets/Animacjamenu-9.png" id="12_fiff5"]
+[ext_resource type="Texture2D" uid="uid://cq40fceyiqa04" path="res://assets/Animacjamenu-10.png" id="13_svxln"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5d8kt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_vaaqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_es7np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2w0l2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xm78o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_j4l2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xdush")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ic8fd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wpo82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fiff5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_svxln")
+}],
+"loop": true,
+"name": &"mirror",
+"speed": 11.0
+}]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -18,10 +66,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -342.0
-offset_top = 69.0
-offset_right = -13.0
-offset_bottom = 206.0
+offset_left = -897.0
+offset_top = 55.0
+offset_right = -568.0
+offset_bottom = 192.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 48
@@ -37,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -203.0
-offset_top = -605.0
-offset_right = -1.0
-offset_bottom = -565.0
+offset_left = -764.0
+offset_top = -620.0
+offset_right = -562.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -71,10 +119,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -189.5
-offset_top = -473.0
-offset_right = -14.5
-offset_bottom = -433.0
+offset_left = -750.5
+offset_top = -488.0
+offset_right = -575.5
+offset_bottom = -448.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -104,10 +152,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -202.0
-offset_top = -330.0
-offset_right = -2.0
-offset_bottom = -293.0
+offset_left = -763.0
+offset_top = -345.0
+offset_right = -563.0
+offset_bottom = -308.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -136,6 +184,13 @@ stream = ExtResource("2_5t5sf")
 
 [node name="Noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_dn1pu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+sprite_frames = SubResource("SpriteFrames_5d8kt")
+animation = &"mirror"
+frame = 1
+frame_progress = 0.36954
 
 [connection signal="pressed" from="btn_start" to="." method="_on_btn_start_pressed"]
 [connection signal="pressed" from="btn_options" to="." method="_on_btn_options_pressed"]

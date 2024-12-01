@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xnqaistfnnww"
-path.s3tc="res://.godot/imported/AttackUP-8.png-d3664487bb87246d20e399f13cbeb25d.s3tc.ctex"
+uid="uid://4ruifphvhqld"
+path.s3tc="res://.godot/imported/Walk-4.png-3e09e1c184e3101f92ceb2f5522104e1.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/player/AttackUP-8.png"
-dest_files=["res://.godot/imported/AttackUP-8.png-d3664487bb87246d20e399f13cbeb25d.s3tc.ctex"]
+source_file="res://assets/player/Walk-4.png"
+dest_files=["res://.godot/imported/Walk-4.png-3e09e1c184e3101f92ceb2f5522104e1.s3tc.ctex"]
 
 [params]
 
