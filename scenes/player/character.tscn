@@ -409,6 +409,7 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 physics_interpolation_mode = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.66533e-15, 0, 0.0216064)
 shape = SubResource("BoxShape3D_cfxl0")
 
 [node name="DeathFrameTimer" type="Timer" parent="."]
