@@ -34,7 +34,7 @@ extends CharacterBody3D
 
 var enemies_instance : Array
 const BASE_ENEMY = preload("res://scenes/base_enemy/base_enemy.tscn")
-
+signal new_corridor
 #endregion
 
 #region Nodes Export Group
@@ -575,3 +575,7 @@ func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_inde
 		initialize_corridors(area.global_position)
 		area.queue_free()
 		print("enemy")
+	elif area.name.begins_with("level"):
+		area.queue_free()
+		new_corridor.emit()
+		print("pokoj nowy")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmk1x1wi30gr6"]
+[gd_scene load_steps=11 format=3 uid="uid://cmk1x1wi30gr6"]
 
 [ext_resource type="Texture2D" uid="uid://crr65oa44f8p7" path="res://assets/podloga1.png" id="1_3yt5o"]
 [ext_resource type="Script" path="res://scenes/levels/level_structures/corridors/corridors_script.gd" id="1_dj0up"]
 [ext_resource type="Texture2D" uid="uid://dgoarmo16o3pb" path="res://assets/Ściana3a.png" id="2_3rbte"]
+[ext_resource type="PackedScene" uid="uid://onkit5wxjuih" path="res://scenes/levels/level_structures/enemy.tscn" id="2_cx8fr"]
+[ext_resource type="PackedScene" uid="uid://dspjtac0xgeob" path="res://scenes/levels/level_structures/level_end.tscn" id="5_7i07m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kokca"]
 albedo_texture = ExtResource("1_3yt5o")
@@ -23,6 +25,21 @@ albedo_texture = ExtResource("2_3rbte")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.08604)
 script = ExtResource("1_dj0up")
 length = 5
+
+[node name="enemy5" parent="." instance=ExtResource("2_cx8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05154, 4.6)
+
+[node name="enemy" parent="." instance=ExtResource("2_cx8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 0.05154, 2.5)
+
+[node name="enemy2" parent="." instance=ExtResource("2_cx8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 0.05154, 1.5)
+
+[node name="enemy3" parent="." instance=ExtResource("2_cx8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.05154, 5.6)
+
+[node name="enemy4" parent="." instance=ExtResource("2_cx8fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 0.05154, 4.7)
 
 [node name="corridor1" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
@@ -1005,6 +1022,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0255127, 0)
 shape = SubResource("BoxShape3D_yrqqf")
 
 [node name="start" type="Marker3D" parent="."]
+
+[node name="level_end" parent="." instance=ExtResource("5_7i07m")]
 
 [node name="end" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)

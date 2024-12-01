@@ -35,7 +35,7 @@
 [ext_resource type="Texture2D" uid="uid://4ruifphvhqld" path="res://assets/player/Walk-4.png" id="33_3l02p"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_do2b6"]
-radius = 0.7
+radius = 1.9
 height = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iiyko"]
@@ -414,7 +414,7 @@ target_position = Vector3(0, 0, 2)
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.83484, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.26341, 0)
 shape = SubResource("CapsuleShape3D_do2b6")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]

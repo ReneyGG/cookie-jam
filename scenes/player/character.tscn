@@ -322,7 +322,7 @@ size = Vector3(1, 0.48291, 1.50513)
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cfxl0"]
-size = Vector3(40, 1, 80)
+size = Vector3(60, 40, 100)
 
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
 process_mode = 3
