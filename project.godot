@@ -11,18 +11,22 @@ config_version=5
 [application]
 
 config/name="CookieJam2024"
-run/main_scene="res://scenes/levels/procedural_test/procedural_test.tscn"
+run/main_scene="res://scenes/gui/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Freeze="*res://scenes/freeze/freeze.tscn"
+Audio="*res://scenes/audio/audio.tscn"
+MainTheme="*res://scenes/main_theme/main_theme.tscn"
+Global="*res://scenes/Global.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 
 [input]
 

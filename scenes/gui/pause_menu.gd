@@ -35,7 +35,7 @@ func _on_btn_resume_pressed() -> void:
 
 func _on_btn_restart_pressed() -> void:
 	resume()
-	get_tree().reload_current_scene()
+	get_tree().paused = false
 	
 func _on_btn_options_pressed() -> void:
 	menu.hide()

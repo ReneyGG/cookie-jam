@@ -12,7 +12,8 @@ var is_it_start:= true
 
 func _ready() -> void:
 	start_corridors()
-
+	MainTheme.play()
+	Global.points = 0
 
 func initialize_corridors(scene: PackedScene) -> void:
 	if is_it_start == true:

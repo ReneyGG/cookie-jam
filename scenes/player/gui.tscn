@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bv0apbjda28cv"]
+[gd_scene load_steps=50 format=3 uid="uid://bv0apbjda28cv"]
 
 [ext_resource type="Script" path="res://scenes/player/gui.gd" id="1_gy8ea"]
 [ext_resource type="Shader" path="res://scenes/player/perspective.gdshader" id="2_gmlob"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://ct30fp2gjr1o5" path="res://assets/player/Splash-3.png" id="26_w2chc"]
 [ext_resource type="Texture2D" uid="uid://n8cskqjyl28o" path="res://assets/player/Splash-4.png" id="27_eys6a"]
 [ext_resource type="Shader" path="res://scenes/player/crt.gdshader" id="32_v25ce"]
+[ext_resource type="PackedScene" uid="uid://kdkiolchqwpv" path="res://scenes/gui/pause_menu.tscn" id="33_k84sk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3yg4"]
 shader = ExtResource("2_gmlob")
@@ -592,6 +593,8 @@ libraries = {
 libraries = {
 "": SubResource("AnimationLibrary_8mmeg")
 }
+
+[node name="pause_menu" parent="." instance=ExtResource("33_k84sk")]
 
 [connection signal="timeout" from="adrenaline_bar/adrenaline_timer" to="." method="_on_adrenaline_timer_timeout"]
 [connection signal="timeout" from="combo_meter/combo_timer" to="." method="_on_combo_timer_timeout"]

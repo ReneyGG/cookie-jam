@@ -232,6 +232,8 @@ func _physics_process(delta): # Most things happen here.
 	if health <= 0.1:
 		dead = true
 		get_tree().paused = true
+		MainTheme.stop()
+		Audio.play("death")
 		CAMERA.apply_shake()
 		$DeathFrameTimer.start(0.1)
 		await $DeathFrameTimer.timeout
@@ -284,6 +286,7 @@ func handle_attack():
 			var coll = bodies[0]
 			coll.hit(attack_damage)
 			gui.get_attack()
+			Audio.play("stab")
 			Freeze.frame_freeze(0.1,0.1)
 			target_health += attack_heal
 			gui.killTimerUpdate()
@@ -547,6 +550,7 @@ func handle_pausing():
 
 func hit(damage):
 	gui.get_hit()
+	Audio.play("stab_self")
 	CAMERA.apply_shake()
 	target_health -= damage
 	Freeze.frame_freeze(0.1,0.1)

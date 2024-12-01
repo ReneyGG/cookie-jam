@@ -87,4 +87,5 @@ func hit(damage):
 		animation.play("death")
 
 func die():
+	Global.points += 1
 	queue_free()
