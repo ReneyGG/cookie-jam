@@ -1,20 +1,21 @@
 extends Node
 
-var text1 = "text1"
-var text2 = "text2"
-var text3 = "text3"
-var text4 = "text4"
-var text5 = "text5"
-var text6 = "text6"
-var text7 = "text7"
-var text8 = "text8"
-var text9 = "text9"
-var text10 = "text10"
-var text11 = "text11"
-var text12 = "text12"
-var text13 = "text13"
+var text1 = "q"
+var text2 = "qI wish I was made for loving someone"
+var text3 = "qBut the only person who I can love"
+var text4 = "q...is Me"
+var text5 = "qI need to move deeper into my mind (WSAD)"
+var text6 = "qA knife has two sides"
+var text7 = "qTo hurt someone (LPM)"
+var text8 = "qOr to hurt Me to feel something (PPM)"
+var text9 = "qBut I need to remember"
+var text10 = "qI can't die (Health Bar)"
+var text11 = "qAnd can't freak out (Pleasure Bar)"
+var text12 = "qIt can hurt quite a bit"
+var text13 = "q"
 
 @onready var display_label = $SceneText
+@onready var game = preload("res://scenes/levels/procedural_test/procedural_test.tscn")
 
 # Przechowywanie aktualnej linii dialogu i indeksu litery
 var current_line_index = 0
@@ -24,8 +25,8 @@ var full_line = ""
 var typing_speed = 0.05  # Czas (w sekundach) między literami
 var typing_active = false  # Flaga kontrolująca, czy animacja jest aktywna
 var can_click := false
-var i = 1
-var lines := 13
+var i = 2
+var lines := 12
 
 func _ready():
 	$Cutscene.hide()
@@ -72,6 +73,9 @@ func cutscene():
 # Funkcja do wyświetlenia kolejnej linii dialogu
 func show_next_line():
 	if current_line_index < lines:
+		if i == 13:
+			$Noise.stop()
+			Audio.play("stab_self")
 		full_line = get("text"+str(i))
 		full_line[0] = ""
 		current_char_index = 0
@@ -84,13 +88,14 @@ func show_next_line():
 	else:
 		#get_parent().get_parent().after_dialog()
 		#animation_player.play("popout")
-		get_tree().change_scene_to_file("res://scenes/levels/procedural_test/procedural_test.tscn")
+		get_tree().change_scene_to_packed(game)
 		#queue_free()
 		# Koniec dialogu, np. zamknij scenę dialogu
 		#print("Koniec dialogów.")
 
 # Funkcja stopniowo wyświetlająca tekst
 func start_typing_text():
+	$Typing.playing = true
 	# Wywołuje się co "typing_speed" sekund, aż wyświetli cały tekst
 	if typing_active:
 		await get_tree().create_timer(typing_speed).timeout
@@ -101,6 +106,7 @@ func start_typing_text():
 			start_typing_text()
 		else:
 			# Cała linia została wyświetlona
+			$Typing.playing = false
 			is_text_scrolling = false
 			typing_active = false
 			#display_label.text = full_line

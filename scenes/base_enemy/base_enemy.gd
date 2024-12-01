@@ -52,7 +52,7 @@ func _physics_process(delta):
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
 	#vec_to_player.y = 0
-	#raycast.target_position = vec_to_player * 3
+	raycast.target_position = vec_to_player * 3
 	#if not floor_ray.is_colliding():
 		#vec_to_player.y -= gravity * delta
 	#move_and_collide(vec_to_player * move_speed * delta)
