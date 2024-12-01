@@ -2,7 +2,11 @@
 
 importer="mp3"
 type="AudioStreamMP3"
+<<<<<<< HEAD
 uid="uid://dnldvd0nj3b47"
+=======
+uid="uid://b1olnjv7mjccp"
+>>>>>>> 5e5c6f95660b43f97a7a78da75f8bcac6563a6a9
 path="res://.godot/imported/Jeff-the-killer-menu-BEZ-SZUMU.mp3-67b10f775da9a4c19c8628aac06c0648.mp3str"
 
 [deps]
@@ -12,8 +16,14 @@ dest_files=["res://.godot/imported/Jeff-the-killer-menu-BEZ-SZUMU.mp3-67b10f775d
 
 [params]
 
+<<<<<<< HEAD
 loop=true
 loop_offset=0.0
 bpm=0.0
+=======
+loop=false
+loop_offset=0
+bpm=0
+>>>>>>> 5e5c6f95660b43f97a7a78da75f8bcac6563a6a9
 beat_count=0
 bar_beats=4
