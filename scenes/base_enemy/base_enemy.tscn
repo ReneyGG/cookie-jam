@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dajihw3h0cqnh"]
+[gd_scene load_steps=27 format=3 uid="uid://dajihw3h0cqnh"]
 
 [ext_resource type="Script" path="res://scenes/base_enemy/base_enemy.gd" id="1_bhi8d"]
 [ext_resource type="Texture2D" uid="uid://lsplogfxvjhp" path="res://assets/player/Attack-1.png" id="2_mecr0"]
@@ -10,13 +10,20 @@
 [ext_resource type="Texture2D" uid="uid://bi8c6d43ip65q" path="res://assets/player/Attack-7.png" id="8_e2ubn"]
 [ext_resource type="Texture2D" uid="uid://dk4r5lr3fc86d" path="res://assets/player/Attack-8.png" id="9_vm3ug"]
 [ext_resource type="Texture2D" uid="uid://bslfwa1eyc73v" path="res://assets/player/Attack-9.png" id="10_l4uyf"]
+[ext_resource type="Texture2D" uid="uid://dd1ti0qneyxbp" path="res://assets/player/Death-1.png" id="11_8qugo"]
 [ext_resource type="Texture2D" uid="uid://kg74epu3aruo" path="res://assets/player/Idle-1.png" id="11_fsgej"]
 [ext_resource type="Texture2D" uid="uid://bc0735mt6mu5q" path="res://assets/player/Idle-2.png" id="12_hmagf"]
+[ext_resource type="Texture2D" uid="uid://d38lpng4q2wfs" path="res://assets/player/Death-2.png" id="12_r33oa"]
 [ext_resource type="Texture2D" uid="uid://i6vs6yi71dt4" path="res://assets/player/Idle-3.png" id="13_2l5m3"]
+[ext_resource type="Texture2D" uid="uid://c80ejj8qaqnx1" path="res://assets/player/Death-3.png" id="13_cio7q"]
+[ext_resource type="Texture2D" uid="uid://gvwgdu3m614u" path="res://assets/player/Death-4.png" id="14_d86u6"]
 [ext_resource type="Texture2D" uid="uid://bcxa51yk7m66v" path="res://assets/player/Idle-4.png" id="14_ssarg"]
+[ext_resource type="Texture2D" uid="uid://bdufbuav7c58d" path="res://assets/player/Death-5.png" id="15_m11sa"]
+[ext_resource type="Texture2D" uid="uid://d3g1j14nq1r66" path="res://assets/player/Death-6.png" id="16_54vea"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2dfyv"]
-size = Vector3(1.5, 5.76, 1.5)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_do2b6"]
+radius = 0.7
+height = 8.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iiyko"]
 animations = [{
@@ -51,6 +58,29 @@ animations = [{
 "loop": true,
 "name": &"attack",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_8qugo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_r33oa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cio7q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_d86u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_m11sa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_54vea")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -188,8 +218,7 @@ target_position = Vector3(0, 0, 2)
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.416, 0)
-shape = SubResource("BoxShape3D_2dfyv")
+shape = SubResource("CapsuleShape3D_do2b6")
 
 [node name="Sprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2

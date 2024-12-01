@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crdpxx8r0qpgk"
-path.s3tc="res://.godot/imported/Ściana5a.png-80ae572107335fd68320c1d2b0f40975.s3tc.ctex"
+uid="uid://bdufbuav7c58d"
+path.s3tc="res://.godot/imported/Death-5.png-a23fb11ae624379fad426b0aa0565942.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Ściana5a.png"
-dest_files=["res://.godot/imported/Ściana5a.png-80ae572107335fd68320c1d2b0f40975.s3tc.ctex"]
+source_file="res://assets/player/Death-5.png"
+dest_files=["res://.godot/imported/Death-5.png-a23fb11ae624379fad426b0aa0565942.s3tc.ctex"]
 
 [params]
 

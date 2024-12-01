@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-@export var max_health := 1
+@export var max_health := 2
 @export var move_speed := 2
 @export var attack_damage := 1
 @export var anim_player : Node
@@ -38,7 +38,7 @@ func _physics_process(delta):
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
 	vec_to_player.y = 0
-	raycast.target_position = vec_to_player * 1.5
+	raycast.target_position = vec_to_player * 3
 	
 	move_and_collide(vec_to_player * move_speed * delta)
 	

@@ -1,15 +1,26 @@
 extends Control
 
 signal enemyKilled()
+signal attack_frame
 
 @onready var animation = $AnimationPlayer
+@onready var flash_animation = $FlashAnimation
 
 var comboCounter = 0
 var mouseInput
 
-func _physics_process(delta):
+func _ready():
+	$FlashPos.color = Color(0.0, 0.0, 0.0, 0.0)
+
+func _physics_process(_delta):
 	if mouseInput:
 		self.position = lerp(self.position, mouseInput * -1, 0.2)
+
+func get_hit():
+	flash_animation.play("flash_neg")
+
+func get_attack():
+	flash_animation.play("flash_pos")
 
 func changeHealthBar(d: float) -> void:
 	$health_bar.value = d
@@ -38,3 +49,6 @@ func animation_attack():
 
 func animation_self_attack():
 	animation.play("self_attack")
+
+func emit_attack_frame():
+	emit_signal("attack_frame")

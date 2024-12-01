@@ -1,5 +1,8 @@
 extends Node
 
+func _ready():
+	$Music.play()
+	$Noise.play()
 
 func _on_btn_start_pressed() -> void:
 	print("dziala")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cc1m2a1obsyn4"]
+[gd_scene load_steps=20 format=3 uid="uid://cc1m2a1obsyn4"]
 
 [ext_resource type="Script" path="res://scenes/player/character.gd" id="1_0t4e8"]
 [ext_resource type="PackedScene" uid="uid://bv0apbjda28cv" path="res://scenes/player/gui.tscn" id="2_x0eqb"]
@@ -316,11 +316,15 @@ _data = {
 "land_right": SubResource("Animation_vsknp")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tlk07"]
+size = Vector3(1, 0.48291, 1.50513)
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [node name="Character" type="CharacterBody3D" node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
+process_mode = 3
 transform = Transform3D(-8.74228e-08, 0, -2, 0, 2, 0, 2, 0, -8.74228e-08, 0, 0, 0)
-collision_layer = 7
+collision_layer = 5
 script = ExtResource("1_0t4e8")
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
@@ -361,9 +365,11 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Head"]
+process_mode = 3
 current = true
+fov = 90.0
 script = ExtResource("3_fva2b")
-randomStrength = 0.2
+randomStrength = 0.3
 shakeFade = 10.0
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head"]
@@ -378,9 +384,13 @@ libraries = {
 }
 speed_scale = 4.0
 
-[node name="RayCast3D" type="RayCast3D" parent="Head"]
-target_position = Vector3(0, 0, -2)
+[node name="Hitbox" type="Area3D" parent="Head"]
+collision_layer = 2
 collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26795e-08, -0.0196186, -0.771411)
+shape = SubResource("BoxShape3D_tlk07")
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -388,5 +398,8 @@ shape = SubResource("SphereShape3D_k4wwl")
 target_position = Vector3(0, 0.5, 0)
 
 [node name="EditorModule" type="Node" parent="."]
+
+[node name="DeathFrameTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

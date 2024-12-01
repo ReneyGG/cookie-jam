@@ -15,6 +15,10 @@ run/main_scene="res://scenes/levels/test/test.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Freeze="*res://scenes/freeze/freeze.tscn"
+
 [display]
 
 window/size/viewport_width=1920
