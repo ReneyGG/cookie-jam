@@ -32,6 +32,9 @@ extends CharacterBody3D
 ## The reticle file to import at runtime. By default are in res://addons/fpc/reticles/. Set to an empty string to remove.
 @export_file var default_reticle
 
+var enemies_instance : Array
+const BASE_ENEMY = preload("res://scenes/base_enemy/base_enemy.tscn")
+
 #endregion
 
 #region Nodes Export Group
@@ -551,3 +554,24 @@ func _on_timer_timeout() -> void:
 	is_timer_on = false
 	print("timer stop")
 	pass # Replace with function body.
+
+var i = 0
+@onready var character: CharacterBody3D = $"."
+
+func initialize_corridors(Vector3) -> void:
+	enemies_instance.append(BASE_ENEMY.instantiate())
+	self.add_child(enemies_instance[i])
+	enemies_instance[i].global_position = Vector3
+	enemies_instance[i].player = character
+	enemies_instance[i].set_collision_layer_value(3, false)
+	enemies_instance[i].set_collision_mask_value(3, false)
+	
+	print("Dodano przeciwnika: " + " - nazwa: ", enemies_instance[i].global_position, enemies_instance[i].name)
+	i += 1
+
+
+func _on_area_3d_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	if area.name.begins_with("enemy"):
+		initialize_corridors(area.global_position)
+		area.queue_free()
+		print("enemy")
